@@ -16,12 +16,13 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
+      <RouterLink to="/">
       <a class="navbar-item">
-        <RouterLink to="/">
+     
         Home
-        </RouterLink>
+      
       </a>
-
+    </RouterLink>
       <a class="navbar-item">
         <RouterLink to="/about">
         About

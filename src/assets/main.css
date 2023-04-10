@@ -4,4 +4,45 @@
 }
 .input {
   width: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  
 }
+input[type="text"] {
+  color: white; 
+}
+input[type="text"]::placeholder {
+  color: white; 
+}
+
+#home-header{
+  margin-left: 50px !important;
+  margin-top:190px;
+  color:white !important
+}
+
+#home-img{
+transform: scale(0.8);
+}
+.navbar{
+  top:10px;
+  background-color: transparent !important;
+
+}
+.navbar-item{
+  color:white !important;
+  display: inline-block !important;
+}
+
+.background{
+  background: hsla(252, 51%, 15%, 1);
+
+background: linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
+
+background: -moz-linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
+
+background: -webkit-linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1B133B", endColorstr="#5A2093", GradientType=1 );
+}
+
