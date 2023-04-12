@@ -9,10 +9,17 @@
   
 }
 input[type="text"] {
-  color: white; 
+  color: white !important; 
 }
 input[type="text"]::placeholder {
-  color: white; 
+  color: white !important; 
+}
+
+.input {
+  color: rgba(255, 255, 255) !important;  
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;  
 }
 
 #home-header{
@@ -46,3 +53,27 @@ background: -webkit-linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270,
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1B133B", endColorstr="#5A2093", GradientType=1 );
 }
 
+.box{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#signinform{
+  color:white;
+}
+
+.navbar a{
+
+  color:white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.5s;
+
+}
+
+.navbar a:hover{
+  background-color: transparent;
+  color:grey !important;
+  transition: 0.5s;
+  text-decoration: underline;
+  text-underline-offset: 15px;
+}

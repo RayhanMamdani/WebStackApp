@@ -1,5 +1,6 @@
 
 
+
 <template>
    <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -23,11 +24,7 @@
       
       </a>
     </RouterLink>
-      <a class="navbar-item">
-        <RouterLink to="/about">
-        About
-        </RouterLink>
-      </a>
+     
 
       <div class="navbar-item field">
   <div class="control">
@@ -40,11 +37,16 @@
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-primary">
+            <RouterLink to="/SignUp">
+
             <strong>Sign up</strong>
+            </RouterLink>
           </a>
+          <RouterLink to="/Login">
           <a class="button is-light">
             Log in
           </a>
+        </RouterLink>
         </div>
       </div>
     </div>
