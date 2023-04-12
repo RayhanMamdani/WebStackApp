@@ -28,7 +28,14 @@
 
       <div class="navbar-item field">
   <div class="control">
-    <input class="input" type="text" placeholder="Search" >
+    <span><input class="input" type="text" placeholder="Search" ></span>
+    <span> <RouterLink to="/PostSearch">
+      <a class="button">
+        <i class="fas fa-search"></i>      
+      </a>
+    </RouterLink>
+  </span>
+
   </div>
 </div>
     </div>
