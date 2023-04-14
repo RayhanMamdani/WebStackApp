@@ -32,26 +32,15 @@ input[type="text"]::placeholder {
 transform: scale(0.8);
 }
 .navbar{
-  top:10px;
   background-color: transparent !important;
 
 }
 .navbar-item{
-  color:white !important;
+  color:black !important;
   display: inline-block !important;
 }
 
-.background{
-  background: hsla(252, 51%, 15%, 1);
 
-background: linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
-
-background: -moz-linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
-
-background: -webkit-linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1B133B", endColorstr="#5A2093", GradientType=1 );
-}
 
 .box{
   background-color: rgba(255, 255, 255, 0.1);
@@ -63,7 +52,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1B133B", en
 
 .navbar a{
 
-  color:white;
+  color:black;
   text-decoration: none;
   font-size: 18px;
   transition: 0.5s;
@@ -76,4 +65,14 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1B133B", en
   transition: 0.5s;
   text-decoration: underline;
   text-underline-offset: 15px;
+}
+
+.bg{
+margin-top:10px;
+margin-left: 50px;
+margin-right: 50px;
+height:500px;
+  background-image: url("../images/header.jpeg");
+  border-radius: 25px;
+  opacity: 0.5;
 }
