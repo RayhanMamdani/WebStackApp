@@ -24,20 +24,51 @@
       
       </a>
     </RouterLink>
+
+    <RouterLink to="/">
+      <a class="navbar-item">
      
-
-      <div class="navbar-item field">
-  <div class="control">
-    <span><input class="input" type="text" placeholder="Search" ></span>
-    <span> <RouterLink to="/PostSearch">
-      <a class="button">
-        <i class="fas fa-search"></i>      
+        Auto
+      
       </a>
-    </RouterLink>
-  </span>
 
-  </div>
-</div>
+    </RouterLink>
+
+        <RouterLink to="/">
+      <a class="navbar-item">
+     
+        Tech
+      
+      </a>
+
+    </RouterLink>
+
+        <RouterLink to="/">
+      <a class="navbar-item">
+     
+        Music
+      
+      </a>
+
+    </RouterLink>
+
+        <RouterLink to="/">
+      <a class="navbar-item">
+     
+        Sports 
+      
+      </a>
+
+    </RouterLink>
+        <RouterLink to="/">
+      <a class="navbar-item">
+     
+        Vintage
+      
+      </a>
+
+    </RouterLink>
+    
     </div>
 
     <div class="navbar-end">
