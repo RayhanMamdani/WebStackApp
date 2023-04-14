@@ -3,9 +3,13 @@
   height: 500px;
 }
 .input {
-  width: 400px;
+  position:absolute;
+  width: 800px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
+  margin-top:200px;
+  left: 50%;
+  transform: translateX(-50%);
   
 }
 input[type="text"] {
@@ -23,9 +27,13 @@ input[type="text"]::placeholder {
 }
 
 #home-header{
-  margin-left: 50px !important;
-  margin-top:190px;
-  color:white !important
+  position: absolute;
+  color:white !important;
+  margin-top:100px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight:300
 }
 
 #home-img{
@@ -71,8 +79,7 @@ transform: scale(0.8);
 margin-top:10px;
 margin-left: 50px;
 margin-right: 50px;
-height:500px;
-  background-image: url("../images/header.jpeg");
+height:400px;
+  background-image: url("../images/header2.jpeg");
   border-radius: 25px;
-  opacity: 0.5;
 }
