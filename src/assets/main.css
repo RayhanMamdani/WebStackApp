@@ -1,21 +1,57 @@
-.cards{
-  width: 250px;
-  height: 500px;
-}
-#searchbar {
+
+
+
+form.example{
   position:absolute;
   width: 800px;
-  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   margin-top:200px;
   left: 50%;
   transform: translateX(-50%);
+}
+form.example input[type=text] {
   
+  width: 800px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+
+ 
+  color: white;
+  padding: 10px;
+ 
+  float: left;
+  width: 80%;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  font-size: 17px;
+  border-left: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+form.example button:hover {
+  transition: 0.5s;
+
+  background: #00d1b2  ;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 #searchbar[type="text"] {
   color: white !important; 
 }
 #searchbar[type="text"]::placeholder {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
   color: white !important; 
 }
 
@@ -81,3 +117,11 @@ height:400px;
   background-image: url("../images/header2.jpeg");
   border-radius: 25px;
 }
+.button.is-circle {
+  border-radius: 50%;
+  width:  40px;
+  height: 40px;
+
+ 
+}
+

@@ -10,7 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 /* add icons to the library */
 library.add(faUserSecret)
 import './assets/main.css'
