@@ -5,13 +5,17 @@ import App from './App.vue'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
-
+/* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faUserSecret)
 import './assets/main.css'
 
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
-library.add(faHatWizard)
 
 
 app.use(createPinia())

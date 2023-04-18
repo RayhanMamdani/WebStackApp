@@ -11,9 +11,9 @@ import NavBar from '../components/NavBar.vue'
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
           <form action="" class="box">
-            <center><h1 class="is-size-4 has-text-white	">Sign Up</h1></center>
+            <center><h1 class="is-size-4">Sign Up</h1></center>
             <div class="field">
-              <label for="" class="label has-text-white">Email</label>
+              <label for="" class="label">Email</label>
               <div class="control has-icons-left">
                 <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
                 <span class="icon is-small is-left">
@@ -22,7 +22,7 @@ import NavBar from '../components/NavBar.vue'
               </div>
             </div>
             <div class="field">
-              <label for="" class="label has-text-white">Password</label>
+              <label for="" class="label">Password</label>
               <div class="control has-icons-left">
                 <input type="password" placeholder="*******" class="input has-text-white" required>
                 <span class="icon is-small is-left">
@@ -31,7 +31,7 @@ import NavBar from '../components/NavBar.vue'
               </div>
             </div>
             <div class="field">
-              <label for="" class="label has-text-white"> Confirm Password</label>
+              <label for="" class="label"> Confirm Password</label>
               <div class="control has-icons-left">
                 <input type="password" placeholder="*******" class="input" required>
                 <span class="icon is-small is-left">
