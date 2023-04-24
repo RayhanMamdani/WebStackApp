@@ -15,10 +15,14 @@ import NavBar from '../components/NavBar.vue';
 <div style="margin-left: 50px;">
 <h1 style="font-weight:500;" class="is-size-3">Listed Recently</h1>
 <br>
-<div class="cards">
+<div class="center">
+<div class="card-container">
+   <Cards></Cards>
+   <Cards></Cards>
+   <Cards></Cards>
    <Cards></Cards>
 </div>
-
+</div>
 
 </div>
 </template>

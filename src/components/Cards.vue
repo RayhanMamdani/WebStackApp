@@ -8,7 +8,6 @@ import '@/assets/cards.css';
 
 <head>
 
-    <title>Code With Hossein</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
@@ -82,6 +81,7 @@ body {
     border: 2px solid #e1e3e6;
     border-radius: 20px;
     transition: .4s;
+    margin-top:40px;
 }
 
 .card:hover {
