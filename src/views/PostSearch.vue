@@ -1,19 +1,11 @@
-<script>
-import NavBar from '../components/NavBar.vue'
+<script setup>
+import NavBar from '../components/NavBar.vue';
 import Cards from '../components/Cards.vue';
-export default {
-  data() {
-    return {
-      showDiv: false
-    }
-  },
-  methods: {
-    toggleDiv() {
-      this.showDiv = !this.showDiv
-    }
-  }
-}
+import { ref } from 'vue';
+const showDiv = ref(false);
+const toggleDiv = () => (showDiv.value = !showDiv.value);
 </script>
+
 <style>
   
   .filter{
@@ -114,7 +106,10 @@ input:checked + .slider:before {
 <template>
     <NavBar></NavBar>
     <div>
-        <button @click="toggleDiv" class="button">Toggle div</button>
+        <button @click="toggleDiv" class="button">Filter</button>
+        <br>
+        <br>
+        <div class="columns">
         <div v-if="showDiv" class="column is-one-quarter filter">
           <h1 class="filterTitle">Filters</h1>
           <hr>
@@ -198,6 +193,23 @@ input:checked + .slider:before {
         </div>
 
       </div>
+      <div class="column">
+        <div class="card-container">
+          <Cards></Cards>
+          <Cards></Cards>
+          <Cards></Cards>
+          <Cards></Cards>
+          <Cards></Cards>
+          <Cards></Cards>
+          <Cards></Cards>
+        </div>
+
+      </div>
+
    </div>
+  </div>
+
+
+   
 
 </template>

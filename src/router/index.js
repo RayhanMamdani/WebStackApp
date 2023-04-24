@@ -4,6 +4,7 @@ import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
 import PostSearch from '../views/PostSearch.vue'
 import ProductInfo from '../views/ProductInfo.vue'
+import Cart from '../views/Cart.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -31,7 +32,13 @@ const router = createRouter({
       path: '/ProductInfo',
       name: 'ProductInfo',
       component: ProductInfo
+    },
+    {
+      path: '/Cart',
+      name: 'Cart',
+      component: Cart
     }
+
   ]
 })
 

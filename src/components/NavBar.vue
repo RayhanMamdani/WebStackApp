@@ -54,6 +54,11 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
+            <a class="button">
+              <RouterLink to="/Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </RouterLink>
+            </a>
             <a class="button is-primary">
               <RouterLink to="/SignUp">
                 <strong>Sign up</strong>
