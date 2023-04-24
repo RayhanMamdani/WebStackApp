@@ -1,5 +1,6 @@
 <script setup>
 import '@/assets/cards.css';
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -43,11 +44,14 @@ import '@/assets/cards.css';
         </div>
         <p>I'm selling my gently used Nike Air Max sneakers in size 9.5. These sneakers have been worn a few times but are still in great condition. They have a stylish black and white design with a comfortable cushioned sole that's perfect for running or everyday wear.</p>
         <br>
-
+<RouterLink to="/ProductInfo">
         <div class="card-footer">
-            <button>Buy now</button>
+            <button>
+                
+                Buy now
+            </button>
         </div>
-
+    </RouterLink>
     </div>
 
 </body>
@@ -56,6 +60,7 @@ import '@/assets/cards.css';
 
 </template>
 <style scoped>
+
 * {
     margin: 0;
     padding: 0;
@@ -75,6 +80,7 @@ body {
 .card {
     position: relative;
     width: 380px;
+    height: 500px;
     height: min-content;
     padding: 25px;
     background: #ffffff;
@@ -82,6 +88,7 @@ body {
     border-radius: 20px;
     transition: .4s;
     margin-top:40px;
+    overflow: hidden !important;
 }
 
 .card:hover {
