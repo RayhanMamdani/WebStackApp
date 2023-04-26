@@ -16,13 +16,11 @@ import { RouterLink } from 'vue-router';
     <!-- BoxIcons v2.1.1 -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- CSS File -->
-    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-
+    <div class="no-scroll">
     <div class="card">
 
         <div class="card-header">
@@ -44,6 +42,7 @@ import { RouterLink } from 'vue-router';
         </div>
         <p>I'm selling my gently used Nike Air Max sneakers in size 9.5. These sneakers have been worn a few times but are still in great condition. They have a stylish black and white design with a comfortable cushioned sole that's perfect for running or everyday wear.</p>
         <br>
+        
 <RouterLink to="/ProductInfo">
         <div class="card-footer">
             <button>
@@ -53,7 +52,7 @@ import { RouterLink } from 'vue-router';
         </div>
     </RouterLink>
     </div>
-
+</div>
 </body>
 
 </html>
@@ -69,26 +68,35 @@ import { RouterLink } from 'vue-router';
     box-sizing: border-box;
 }
 
+html{
+    overflow-y: hidden !important;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
 body {
-    height: 100vh;
+    max-height: 100vh;
     display: grid;
     place-items: center;
-    background: #fafafa;
     font-family: 'Rubik', sans-serif;
+    overflow: hidden !important;
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 380px;
-    height: 500px;
-    height: min-content;
+    height: auto;
+    min-height: 0;
     padding: 25px;
     background: #ffffff;
     border: 2px solid #e1e3e6;
     border-radius: 20px;
     transition: .4s;
     margin-top:40px;
-    overflow: hidden !important;
 }
 
 .card:hover {
