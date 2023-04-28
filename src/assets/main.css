@@ -1,48 +1,149 @@
-.cards{
-  width: 250px;
-  height: 500px;
+
+
+
+form.example{
+  position:absolute;
+  width: 800px;
+  border-radius: 20px;
+  margin-top:200px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.input {
-  width: 400px;
+form.example input[type=text] {
+  
+  width: 800px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  
+
+ 
+  color: white;
+  padding: 10px;
+ 
+  float: left;
+  width: 80%;
 }
-input[type="text"] {
-  color: white; 
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  font-size: 17px;
+  border-left: none;
+  cursor: pointer;
+  transition: 0.5s;
 }
-input[type="text"]::placeholder {
-  color: white; 
+
+form.example button:hover {
+  transition: 0.5s;
+
+  background: #00d1b2  ;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#searchbar[type="text"] {
+  color: white !important; 
+}
+#searchbar[type="text"]::placeholder {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: white !important; 
+}
+
+#searchbar {
+  color: rgba(255, 255, 255) !important;  
+}
+#searchbar::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;  
 }
 
 #home-header{
-  margin-left: 50px !important;
-  margin-top:190px;
-  color:white !important
+  position: absolute;
+  color:white !important;
+  margin-top:100px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight:300
 }
 
 #home-img{
 transform: scale(0.8);
 }
 .navbar{
-  top:10px;
   background-color: transparent !important;
 
 }
 .navbar-item{
-  color:white !important;
+  color:black !important;
   display: inline-block !important;
 }
 
-.background{
-  background: hsla(252, 51%, 15%, 1);
 
-background: linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
 
-background: -moz-linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
-
-background: -webkit-linear-gradient(-90deg, hsla(252, 51%, 15%, 1) 0%, hsla(270, 64%, 35%, 1) 100%, hsla(0, 0%, 100%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1B133B", endColorstr="#5A2093", GradientType=1 );
+.box{
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
+
+
+.navbar a{
+
+  color:black;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.5s;
+
+}
+
+.navbar a:hover{
+  background-color: transparent;
+  color:grey !important;
+  transition: 0.5s;
+  text-decoration: underline;
+  text-underline-offset: 15px;
+}
+
+.bg{
+margin-top:10px;
+margin-left: 50px;
+margin-right: 50px;
+height:400px;
+  background-image: url("../images/header2.jpeg");
+  border-radius: 25px;
+}
+.button.is-circle {
+  border-radius: 50%;
+  width:  40px;
+  height: 40px;
+
+ 
+}
+
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: space-between;
+ margin-left: 40px;
+ margin-right: 80px;
+overflow: hidden;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: space-around;
+   margin-left: 40px;
+   margin-right: 80px;
+  }
+}

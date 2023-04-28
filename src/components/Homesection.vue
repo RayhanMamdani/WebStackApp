@@ -1,10 +1,13 @@
+
+<script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import SearchBar from '../components/SearchBar.vue';
+</script>
 <template>
-    <div class="columns">
-        <div class="column">
-    <h1 id="home-header" style="font-weight:500" class="is-size-1">Where buyers meet sellers.</h1>
-</div>
-<div class="column">
-    <img  id="home-img" src="../images/vr.png" alt="">
-</div>
+    <div class="bg">
+        <center>
+        <h1 id="home-header" style="" class="is-size-1">Find More For Less.</h1>
+       <SearchBar></SearchBar>
+    </center>
 </div>
 </template>
