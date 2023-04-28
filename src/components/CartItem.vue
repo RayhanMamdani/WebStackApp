@@ -1,16 +1,31 @@
+<style>
+    .columns{
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+    .quantity{
+        width: 30%;
+    }
+</style>
 
 <template>
     <div class="columns">
         <div class="column is-one-fifth">
-            <img src="../images/card-img.jpg" alt="...">
+            <a>
+                <RouterLink to="/ProductInfo">
+                    <img src="../images/card-img.jpg" alt="...">
+                </RouterLink> 
+            </a>
         </div>
         <div class="column">
-            <h1>$22.12</h1> <!--Random Values-->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, harum?</p>
-            <p>Colour: Red</p>
-            <p>Qty <input placeholder="1"></p>
+            <h2>Nike Running Shoes</h2>
+            <h2>$22.12</h2> <!--Random Values-->
+            <span> Qty: <input placeholder="1" class="input quantity" type="number" min="0"></span>
+            <button class="button is-danger">Remove</button>
         </div>
     </div>
+    <hr>
 
 </template>
 
