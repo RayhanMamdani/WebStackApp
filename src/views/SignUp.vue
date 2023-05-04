@@ -30,12 +30,34 @@ import NavBar from '../components/NavBar.vue'
                 </span>
               </div>
             </div>
+
+            
             <div class="field">
               <label for="" class="label"> Confirm Password</label>
               <div class="control has-icons-left">
                 <input type="password" placeholder="*******" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="" class="label">Address</label>
+              <div class="control has-icons-left">
+                <input type="email" placeholder="e.g. 85 Moatfield Drive" class="input" required>
+                <span class="icon is-small is-left">
+                  <i class="fa-regular fa-address-book"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="" class="label">Age</label>
+              <div class="control has-icons-left">
+                <input type="number" placeholder="e.g. 24" class="input" required>
+                <span class="icon is-small is-left">
+                  <i class="fa-solid fa-person"></i>
                 </span>
               </div>
             </div>

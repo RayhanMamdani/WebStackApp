@@ -47,3 +47,10 @@ import NavBar from '../components/NavBar.vue'
 </section>
 </div>
 </template>
+
+<style scoped>
+*{
+  color:black !important;
+}
+
+</style>

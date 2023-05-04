@@ -1,9 +1,12 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      <RouterLink to="/">
+
+      <a id="navlogo" class="navbar-item">
+        <img src="../images/vendozalogo.png" width="150" height="150">
       </a>
+    </RouterLink>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -14,11 +17,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <RouterLink to="/">
-          <a class="navbar-item">
-            Home
-          </a>
-        </RouterLink>
+    
 
         <RouterLink to="/">
           <a class="navbar-item">

@@ -84,13 +84,27 @@ transform: scale(0.8);
   display: inline-block !important;
 }
 
+.navbar-item img{
+  max-height: 250px !important;
+}
+
 
 
 .box{
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.navbar-start{
+  margin-top: 20px !important;
+}
 
+.navbar-item .buttons{
+  margin-top: 10px !important;
+}
+
+#navlogo{
+margin-top:-40px;
+}
 
 .navbar a{
 
