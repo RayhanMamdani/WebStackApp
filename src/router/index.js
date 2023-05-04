@@ -6,6 +6,7 @@ import PostSearch from '../views/PostSearch.vue'
 import ProductInfo from '../views/ProductInfo.vue'
 import Cart from '../views/Cart.vue'
 import Profile from '../views/Profile.vue'
+import Chatbox from '../views/Chatbox.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -43,6 +44,12 @@ const router = createRouter({
       path: '/Profile',
       name: 'Profile',
       component: Profile
+    },
+
+    {
+      path: '/Chatbox',
+      name: 'Chatbox',
+      component: Chatbox
     }
 
   ]
