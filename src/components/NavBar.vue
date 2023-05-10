@@ -1,10 +1,10 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <RouterLink to="/">
 
       <a id="navlogo" class="navbar-item">
-        <img src="../images/vendozalogo.png" width="150" height="150">
+        <img src="../images/vendozalogo2.png" width="190" height="190">
       </a>
     </RouterLink>
 
@@ -60,7 +60,7 @@
             </a>
             <a class="button is-primary">
               <RouterLink to="/SignUp">
-                <strong>Sign up</strong>
+                <a>Sign up</a>
               </RouterLink>
             </a>
             <RouterLink to="/Login">
@@ -73,6 +73,13 @@
       </div>
     </div>
   </nav>
+  <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 </template>
 
 <script>

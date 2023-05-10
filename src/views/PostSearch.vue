@@ -105,6 +105,7 @@ input:checked + .slider:before {
 
 <template>
     <NavBar></NavBar>
+    
     <div>
         <button @click="toggleDiv" class="button">Filter</button>
         <br>
