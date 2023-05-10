@@ -6,7 +6,7 @@ form.example{
   width: 800px;
   border-radius: 20px;
   margin-top:200px;
-  left: 50%;
+  left: 52.5%;
   transform: translateX(-50%);
 }
 form.example input[type=text] {
@@ -68,7 +68,7 @@ form.example::after {
 
 #home-header{
   position: absolute;
-  color:white !important;
+  color:black !important;
   margin-top:100px;
   text-align: center;
   left: 50%;
@@ -137,9 +137,11 @@ margin-top:23px;
 margin-top:-83px;
 margin-left: 50px;
 margin-right: 50px;
+
 height:520px;
-  background-image: url("../images/homesectionbg.jpg");
+  background-image: url("../images/homesectionbg2.jpg");
   background-size: cover;
+background-position: center;
   border-radius: 25px;
 }
 .button.is-circle {
@@ -176,3 +178,5 @@ overflow: hidden;
     width: 75%;  
   }
 }
+
+
