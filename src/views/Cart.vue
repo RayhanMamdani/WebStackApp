@@ -24,7 +24,7 @@ import { ref } from 'vue';
         background-color: lightgray;
     }
     .cost{
-        height: 250px;
+        height: 275px;
     }
     
     header{
