@@ -5,5 +5,8 @@ import Messages from '../components/Messages.vue'
 </script>
 
 <template>
+  <NavBar></NavBar>
+  <div class="containercenter"> 
   <Messages></Messages>
+  </div>
   </template>

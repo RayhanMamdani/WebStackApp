@@ -163,6 +163,14 @@ background-position: center;
 overflow: hidden;
 }
 
+.containercenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height of the container to the full viewport height */
+}
+
+
 
 
 @media only screen and (max-width: 1000px) {
