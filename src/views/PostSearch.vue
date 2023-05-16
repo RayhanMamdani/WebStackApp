@@ -6,15 +6,17 @@ const showDiv = ref(false);
 const toggleDiv = () => (showDiv.value = !showDiv.value);
 </script>
 
-<style>
+<style scoped>
   
   .filter{
-    background-color: lightslategray;
+    color: black;
+    border-style: solid;
+    border-radius: 10px;
   }
   .filterTitle{
     font-size: 25px;
       text-align: center;
-    color: white;
+    color: black;
   }
 
   hr {
@@ -94,22 +96,26 @@ input:checked + .slider:before {
 
 .filterSection{
   margin: 20px;
+  margin-left: 50px;
   height: 30px;
 }
 .filter{
-  color:white;
-  height: 100vh;
+  color:black;
+  height: 500px;
+}
+
+.button-filter{
+  padding: 20px;
+  bottom : 20px;
 }
 </style>
 
 
 <template>
     <NavBar></NavBar>
-    
     <div>
-        <button @click="toggleDiv" class="button">Filter</button>
-        <br>
-        <br>
+        <button @click="toggleDiv" class="button button-filter"><i class="fa-solid fa-bars"></i></button>
+        
         <div class="columns">
         <div v-if="showDiv" class="column is-one-quarter filter">
           <h1 class="filterTitle">Filters</h1>
