@@ -68,7 +68,7 @@ form.example::after {
 
 #home-header{
   position: absolute;
-  color:black !important;
+  color:white !important;
   margin-top:100px;
   text-align: center;
   left: 50%;
@@ -139,7 +139,7 @@ margin-left: 50px;
 margin-right: 50px;
 
 height:520px;
-  background-image: url("../images/homesectionbg2.jpg");
+  background-image: url("../images/homesectionbg.jpg");
   background-size: cover;
 background-position: center;
   border-radius: 25px;

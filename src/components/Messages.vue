@@ -193,7 +193,7 @@ body {
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
   margin-left: 60px;
-  box-shadow: 1px 1px 0.25px black;
+  box-shadow: 1px 1px 0.1px black;
 }
 
 .right-msg .msg-img {

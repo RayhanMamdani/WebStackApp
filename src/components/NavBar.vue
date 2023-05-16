@@ -58,7 +58,7 @@
                 <i class="fa-solid fa-cart-shopping"></i>
               </RouterLink>
             </a>
-            <a class="button is-primary">
+            <a class="button is-light">
               <RouterLink to="/SignUp">
                 <a>Sign up</a>
               </RouterLink>
