@@ -47,21 +47,21 @@ form.example::after {
 .navbar-menu.is-active{
   margin-top: -75px !important;
 }
-#searchbar[type="text"] {
+/* #searchbar[type="text"] {
   color: white !important; 
-}
+} */
 #searchbar[type="text"]::placeholder {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
   color: white !important; 
-}
+} 
 
-#searchbar {
+/* #searchbar {
   color: rgba(255, 255, 255) !important;  
 
-}
+} */
 #searchbar::placeholder {
   color: rgba(255, 255, 255, 0.5) !important;  
 }
