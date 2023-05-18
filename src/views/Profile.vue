@@ -4,12 +4,16 @@
 
 </script>
 
-<style>
+<style scoped>
     h1{
         font-size: 30px;
     }
     .productsSelling{
         margin-left: 30px;
+    }
+    #ratingsLabel{
+        color: gray;
+        font-size: 12px;
     }
 </style>
 
@@ -20,19 +24,32 @@
         <img src="../images/profile.png" alt="..."> 
     </div>
     <div class="column">
-        <h1>Username</h1>
-        <h2>City:</h2>
-        <h2>Date Joined:</h2>
-        <h2>Age</h2>
-        <h2>Products Sold</h2>
+        <h1>John Smith</h1>
+        <h2><i class="fa-solid fa-location-dot"> </i> &nbsp Toronto, ON</h2>
+        <p id="ratingsLabel">Ratings</p>
+        <h2>4.3 ★★★★</h2>
+        <h2>Date Joined: October 5th 2022</h2>
+        <RouterLink to="/Chatbox">
+            <a href="">
+                <button class="button"><i class="fa-solid fa-message"></i> &nbsp Send message</button>
+            </a>
+        </RouterLink>
     </div>
  </div>
- <h1 class="productsSelling">This User is selling:</h1>
- <div class="card-container">
+ <div class="columns">
+    <div class="column is-one-third">
+    </div>
+    <div class="column">
+        <h1 class="productsSelling">John Smith is selling:</h1>
+        <hr>
+        <div class="card-container">
           <Cards></Cards>
           <Cards></Cards>
           <Cards></Cards>
  
         </div>
+    </div>
+</div>
+
 </template>
 
