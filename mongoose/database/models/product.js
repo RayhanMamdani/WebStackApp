@@ -23,12 +23,6 @@ var productSchema = new mongoose.Schema({
             type: String
         }
     ],
-    userID: {
-        //type: Schema.Types.ObjectId
-    },
-    productID: {
-        //type: Schema.Types.ObjectId
-    },
     quantity: {
         type: Number
     }
