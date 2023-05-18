@@ -1,5 +1,5 @@
 <script setup>
-import Navbar from '../components/Navbar.vue';
+import Navbar from '../components/NavBar.vue';
 </script>
 
 <template>
@@ -23,9 +23,9 @@ import Navbar from '../components/Navbar.vue';
 		<p>Welcome to Vendoza, the ultimate destination for buying and selling in the digital age.
 </p>
 		<span>
-			<p>login with social media</p>
-			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+      <br>
+			<p>Login With Google</p>
+			<a href="#"><i class="fa-brands fa-google" style="color: #ffffff;"></i> Login with Google</a>
 		</span>
 		</div>
 	</div>
@@ -138,7 +138,7 @@ import Navbar from '../components/Navbar.vue';
   box-shadow: 0 3px 6px 1px #042d4657;
 }
 .box-form .left .overlay span a:last-child {
-  background: #1dcaff;
+  background: black;
   margin-left: 30px;
 }
 .box-form .right {

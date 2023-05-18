@@ -1,6 +1,6 @@
 <script setup>
-import Navbar from '../components/Navbar.vue';
-import SignUp from '../components/SignUp.vue';
+import Navbar from '../components/NavBar.vue';
+import SignUp from '../components/Signup.vue';
 </script>
 
 <template>

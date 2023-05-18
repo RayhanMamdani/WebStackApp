@@ -20,23 +20,32 @@
 		<p>Welcome to Vendoza, the ultimate destination for buying and selling in the digital age.
 </p>
 		<span>
-			<p>login with social media</p>
-			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+      <br>
+			<p>Login With Google</p>
+			<a href="#"><i class="fa-brands fa-google" style="color: #ffffff;"></i> Login with Google</a>
 		</span>
 		</div>
 	</div>
 	
 	
 		<div class="right">
-		<h5 style="font-size: 45px; margin-top:50px;">Sign Up</h5>
+		<h5 style="font-size: 85px; margin-top:50px;">Sign Up</h5>
+   
+
     <div class="wrapper">
+      <p>Create an account right now! It takes less than a few minutes!!</p>
 		<div class="inputs">
 			<input type="email" placeholder="email">
       
 			<br>
 			<input type="password" placeholder="password">
-		</div>
+		
+      <input type="password" placeholder="confirm password"  required>
+
+      <input type="text" placeholder="address"  required>
+      <input type="number" placeholder="age"  required>
+
+    </div>
 			
 			<br><br>
     </div>
@@ -134,7 +143,7 @@
   box-shadow: 0 3px 6px 1px #042d4657;
 }
 .box-form .left .overlay span a:last-child {
-  background: #1dcaff;
+  background: black;
   margin-left: 30px;
 }
 .box-form .right {
