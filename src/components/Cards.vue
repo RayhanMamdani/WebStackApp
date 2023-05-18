@@ -77,7 +77,6 @@ html{
 }
 
 body {
-    max-height: 100vh;
     display: grid;
     place-items: center;
     font-family: 'Rubik', sans-serif;
@@ -96,7 +95,6 @@ body {
     border: 2px solid #e1e3e6;
     border-radius: 20px;
     transition: .4s;
-    margin-top:40px;
 }
 
 .card:hover {

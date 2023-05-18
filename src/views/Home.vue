@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar.vue';
 
 <template>
       <NavBar></NavBar>
+    
       <div class="background">
    <Homesection></Homesection>
 </div>

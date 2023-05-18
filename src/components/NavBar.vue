@@ -1,9 +1,12 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      <RouterLink to="/">
+
+      <a id="navlogo" class="navbar-item">
+        <img src="../images/vendozalogo2.png" width="190" height="190">
       </a>
+    </RouterLink>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -14,11 +17,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <RouterLink to="/">
-          <a class="navbar-item">
-            Home
-          </a>
-        </RouterLink>
+    
 
         <RouterLink to="/">
           <a class="navbar-item">
@@ -59,9 +58,9 @@
                 <i class="fa-solid fa-cart-shopping"></i>
               </RouterLink>
             </a>
-            <a class="button is-primary">
+            <a class="button is-light">
               <RouterLink to="/SignUp">
-                <strong>Sign up</strong>
+                <a>Sign up</a>
               </RouterLink>
             </a>
             <RouterLink to="/Login">
@@ -74,6 +73,13 @@
       </div>
     </div>
   </nav>
+  <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 </template>
 
 <script>

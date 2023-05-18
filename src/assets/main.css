@@ -6,7 +6,7 @@ form.example{
   width: 800px;
   border-radius: 20px;
   margin-top:200px;
-  left: 50%;
+  left: 52.5%;
   transform: translateX(-50%);
 }
 form.example input[type=text] {
@@ -44,6 +44,9 @@ form.example::after {
   clear: both;
   display: table;
 }
+.navbar-menu.is-active{
+  margin-top: -75px !important;
+}
 #searchbar[type="text"] {
   color: white !important; 
 }
@@ -57,6 +60,7 @@ form.example::after {
 
 #searchbar {
   color: rgba(255, 255, 255) !important;  
+
 }
 #searchbar::placeholder {
   color: rgba(255, 255, 255, 0.5) !important;  
@@ -76,12 +80,17 @@ form.example::after {
 transform: scale(0.8);
 }
 .navbar{
-  background-color: transparent !important;
-
+  background-color: white !important;
+ 
+  height:100px
 }
 .navbar-item{
   color:black !important;
   display: inline-block !important;
+}
+
+.navbar-item img{
+  max-height: 130px !important;
 }
 
 
@@ -90,7 +99,22 @@ transform: scale(0.8);
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.navbar{
+  margin-top: -15px !important;
+}
+.navbar-start{
+  margin-top: 35px !important;
+  font-weight: 100 !important;
+}
 
+.navbar-item .buttons,.navbar-burger {
+  margin-top: 25px !important;
+ 
+}
+
+#navlogo{
+margin-top:23px;
+}
 
 .navbar a{
 
@@ -110,11 +134,14 @@ transform: scale(0.8);
 }
 
 .bg{
-margin-top:10px;
+margin-top:-83px;
 margin-left: 50px;
 margin-right: 50px;
-height:400px;
-  background-image: url("../images/header2.jpeg");
+
+height:520px;
+  background-image: url("../images/homesectionbg.jpg");
+  background-size: cover;
+background-position: center;
   border-radius: 25px;
 }
 .button.is-circle {
@@ -136,6 +163,14 @@ height:400px;
 overflow: hidden;
 }
 
+.containercenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height of the container to the full viewport height */
+}
+
+
 
 
 @media only screen and (max-width: 1000px) {
@@ -146,4 +181,10 @@ overflow: hidden;
    margin-left: 40px;
    margin-right: 80px;
   }
+  form.example {
+    margin-top: 300px;
+    width: 75%;  
+  }
 }
+
+

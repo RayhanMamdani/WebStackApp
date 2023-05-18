@@ -1,8 +1,18 @@
+<script setup>
+import Map from '../components/Map.vue'
+</script>
+
 <template>
+  <button @click=showComponent class="button"><i class="fa-solid fa-map-location-dot"></i></button>
+    <div v-if="show">
+      <Map :class="{ 'Map--front': show }"/>
+      </div>
     <div class="card">
   <nav>
+    <RouterLink to="/PostSearch">
     <svg class="arrow" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/></svg>
-    Back to all Plants
+    Back to Products
+  </RouterLink>
     <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/></svg>
   </nav>
   <div class="photo">
@@ -18,6 +28,8 @@
     <div class="columns">
       <div class="column">
 <h4>Ben Dover</h4>
+<br>
+
 </div>
 <div class="column">
     
@@ -30,6 +42,7 @@
 </div>
 </div>
 </div>
+
 </template>
 
 <style scoped>
@@ -42,6 +55,11 @@
 body {
   background: #aedaa6;
   font-family: "Raleway";
+}
+
+.Map--front {
+  position: relative;
+  z-index: 1;
 }
 
 .card {
@@ -160,4 +178,33 @@ body {
   color: #aedaa6;
   cursor: pointer;
 }
+
+button{
+  transition: 0.5s;
+}
+button:hover {
+  transition: 0.5s;
+  border: 1px solid #aedaa6;
+  color: #aedaa6;
+  cursor: pointer;
+}
 </style>
+
+<script>
+
+export default {
+  name: 'App',
+  components: {
+    Map
+  },
+  data() {
+    return {
+      show: false
+    }
+  },
+  methods: {
+    showComponent() {
+      this.show = !this.show    }
+  }
+}
+</script>
