@@ -43,10 +43,15 @@
     .editUnlist{
         
     }
+
+    .container{
+        padding: 10px;
+    }
 </style>
 
 <template>
  <NavBar></NavBar>
+ <div class="container">
  <h1>Edit Profile</h1>
  <div class="columns">
     <div class="column is-one-half">
@@ -160,5 +165,6 @@
                 </div>
             </div>
         </div>
+    </div>
 </template>
 
