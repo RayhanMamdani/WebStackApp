@@ -1,6 +1,7 @@
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import Cards from '../components/Cards.vue';
+import SearchBar from '../components/SearchBar.vue';
 import { ref } from 'vue';
 const showDiv = ref(false);
 const toggleDiv = () => (showDiv.value = !showDiv.value);
@@ -108,11 +109,19 @@ input:checked + .slider:before {
   padding: 20px;
   bottom : 20px;
 }
+
+.moveup{
+  margin-top:-200px;
+}
+
 </style>
 
 
 <template>
     <NavBar></NavBar>
+    <SearchBar :font-color="'black'" style="margin-top: -50px;"></SearchBar>
+
+
     <div>
         <button @click="toggleDiv" class="button button-filter"><i class="fa-solid fa-bars"></i></button>
         

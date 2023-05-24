@@ -47,21 +47,21 @@ form.example::after {
 .navbar-menu.is-active{
   margin-top: -75px !important;
 }
-#searchbar[type="text"] {
+/* #searchbar[type="text"] {
   color: white !important; 
-}
+} */
 #searchbar[type="text"]::placeholder {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
   color: white !important; 
-}
+} 
 
-#searchbar {
+/* #searchbar {
   color: rgba(255, 255, 255) !important;  
 
-}
+} */
 #searchbar::placeholder {
   color: rgba(255, 255, 255, 0.5) !important;  
 }
@@ -186,5 +186,29 @@ overflow: hidden;
     width: 75%;  
   }
 }
+
+
+
+@media only screen and (max-width: 1025px) {
+ .navbar-start{
+  margin-top: 55px !important;
+  padding-left: 30px !important;
+ }
+ .navbar-end{
+  padding-left: 30px !important;
+
+ }
+}
+
+
+@media only screen and (max-width: 575px) {
+  .card{
+    width: 330px !important;
+  }
+  .card .card-header h3 {
+    font-size: 20px !important
+  }
+ }
+
 
 

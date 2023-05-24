@@ -47,6 +47,10 @@
     .container{
         padding: 10px;
     }
+
+    /* .unlist-button{
+        display: block !important;
+    } */
 </style>
 
 <template>
@@ -130,41 +134,44 @@
         </div> -->
 
         <!--Fix to use card container later this is a placeholder-->
-        <div class="columns">
-            <div class="column">
-                <Cards></Cards>
-                <div class="field has-addons" style="margin-left: 52px">
-                    <div class="control">
-                        <button class="button" style="width: 190px;">Edit</button>
-                    </div>
-                    <div class="control">
-                        <button class="button" style="width: 190px;">Unlist</button>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <Cards></Cards>
-                <div class="field has-addons" style="margin-left: 52px">
-                    <div class="control">
-                        <button class="button" style="width: 190px;">Edit</button>
-                    </div>
-                    <div class="control">
-                        <button class="button" style="width: 190px;">Unlist</button>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <Cards></Cards>
-                <div class="field has-addons" style="margin-left: 52px">
-                    <div class="control">
-                        <button class="button" style="width: 190px;">Edit</button>
-                    </div>
-                    <div class="control">
-                        <button class="button" style="width: 190px;">Unlist</button>
-                    </div>
-                </div>
-            </div>
+        <div class="card-container">
+            <Cards :isDisplayed="'block'"></Cards>
+            <Cards :isDisplayed="'block'"></Cards>
+            <Cards :isDisplayed="'block'"></Cards>
+            <Cards :isDisplayed="'block'"></Cards>
+
+
+            <!-- <div class="control">
+            </div> -->
         </div>
+
+        <!-- <div class="columns">
+            <div class="column">
+                <Cards></Cards>
+                <div class="field has-addons" style="margin-left: 52px">
+                    <div class="control">
+                        <button class="button" style="width: 380px;">Unlist</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="column">
+                <Cards></Cards>
+                <div class="field has-addons" style="margin-left: 52px">
+                    <div class="control">
+                        <button class="button" style="width: 380px;">Unlist</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <Cards></Cards>
+                <div class="field has-addons" style="margin-left: px">
+                    <div class="control">
+                        <button class="button" style="width: 380px;">Unlist</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 </template>
 

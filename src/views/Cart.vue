@@ -43,6 +43,11 @@ import { ref } from 'vue';
         align-items: center !important;
         font-size: 50px;
     }
+    @media only screen and (max-width: 850px) {
+        .no-mobile{
+            display: none;
+        }
+    }
 </style>
 
 <template>
@@ -54,7 +59,7 @@ import { ref } from 'vue';
 
     <div class="columns">
         <div class="column is-two-thirds">
-            <div class="columns">
+            <div class="columns no-mobile">
                 <div class="column is-one-fifth header"></div>
                 <div class="column header">Product</div>
                 <div class="column header">Price</div>

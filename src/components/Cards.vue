@@ -1,6 +1,18 @@
-<script setup>
+<script>
 import '@/assets/cards.css';
 import { RouterLink } from 'vue-router';
+export default {
+  name: 'Cards',
+  props: {
+    isDisplayed: {
+      type: String,
+      default: 'none'
+    }
+  }
+}
+
+
+
 </script>
 
 <template>
@@ -53,6 +65,8 @@ import { RouterLink } from 'vue-router';
     </RouterLink>
     </div>
 </div>
+<button :style="{display: isDisplayed}" class="button is-danger unlist-button">Unlist</button>
+
 </body>
 
 </html>
@@ -232,5 +246,10 @@ body {
     color: #ffffff;
     font-size: 20px;
     letter-spacing: .5px;
+}
+
+.unlist-button{
+    width: 380px; 
+    margin-bottom: 20px;
 }
 </style>
