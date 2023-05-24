@@ -1,6 +1,6 @@
 <script setup>
 import CardInfo from '../components/CardInfo.vue'
-import Navbar from '../components/Navbar.vue'
+import Navbar from '../components/NavBar.vue'
 
 </script>
 
