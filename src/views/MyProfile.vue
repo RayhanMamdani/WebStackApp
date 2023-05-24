@@ -69,7 +69,7 @@
                     <div class="column">
                         <input type="file" id="uploadProfile" accept="image/png, image/jpeg" hidden/>
                         <label class="uploadLabel" for="uploadProfile">Choose file</label>
-                        <p @click="" class="has-text-danger">Remove</p>
+                        <p class="has-text-danger">Remove</p>
                     </div>
                 </div>
 
