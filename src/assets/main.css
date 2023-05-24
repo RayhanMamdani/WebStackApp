@@ -182,7 +182,7 @@ overflow: hidden;
    margin-right: 80px;
   }
   form.example {
-    margin-top: 300px;
+    margin-top: 350px;
     width: 75%;  
   }
 }
@@ -204,11 +204,22 @@ overflow: hidden;
 @media only screen and (max-width: 575px) {
   .card{
     width: 330px !important;
+    height:700px !important;
   }
   .card .card-header h3 {
     font-size: 20px !important
+
   }
+ 
  }
 
 
+ @media only screen and (max-width: 455px) {
+  .card{
+    width: 250px !important;
+  }
+  .card .card-header h3 {
+    font-size: 15px !important
+  }
+ }
 
