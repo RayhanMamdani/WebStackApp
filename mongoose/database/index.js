@@ -58,3 +58,7 @@ app.get('/products/:id', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 })
+//get userRouts
+const users = require('./api/UserRoutes')
+app.use('/api/users', users)
+

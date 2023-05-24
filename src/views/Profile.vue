@@ -15,15 +15,24 @@
         color: gray;
         font-size: 12px;
     }
+    .container{
+        padding: 10px;
+    }
+    @media (max-width: 800px) {
+        .userInfo{
+            text-align: center;
+        }
+    }
 </style>
 
 <template>
  <NavBar></NavBar>
+ <div class="container">
  <div class="columns">
     <div class="column is-one-third">
         <img src="../images/profile.png" alt="..."> 
     </div>
-    <div class="column">
+    <div class="column userInfo">
         <h1>John Smith</h1>
         <h2><i class="fa-solid fa-location-dot"> </i> &nbsp Toronto, ON</h2>
         <p id="ratingsLabel">Ratings</p>
@@ -36,10 +45,11 @@
         </RouterLink>
     </div>
  </div>
- <div class="columns">
+</div>
+ <!-- <div class="columns">
     <div class="column is-one-third">
     </div>
-    <div class="column">
+    <div class="column"> -->
         <h1 class="productsSelling">John Smith is selling:</h1>
         <hr>
         <div class="card-container">
@@ -48,8 +58,8 @@
           <Cards></Cards>
  
         </div>
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 
 </template>
 
