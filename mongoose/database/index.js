@@ -45,6 +45,7 @@ app.post('/products', async (req, res) => {
         console.log(newProduct)
         const productTest = await product.create(newProduct)
         res.send(productTest)
+        newProduct.save();
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

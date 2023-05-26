@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar.vue';
 import Cards from '../components/Cards.vue';
 import SearchBar from '../components/SearchBar.vue';
 import { ref } from 'vue';
+import card from '../FilterCards'
 const showDiv = ref(false);
 const toggleDiv = () => (showDiv.value = !showDiv.value);
 </script>
