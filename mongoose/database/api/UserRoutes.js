@@ -6,6 +6,9 @@ const passport = require('passport')
 const mongoose = require('mongoose')
 const User = require('../models/users')
 
+router.get('/test', async (req, res) => {
+    res.send("hello")
+})
 
 //register router
 router.post('/register', async (req, res) => {
@@ -18,14 +21,6 @@ router.post('/register', async (req, res) => {
         })
     }
 
-    // User.findOne({email: email}).then(email => {
-    //     if (email){
-    //         return res.status(400).json({
-    //             msg: "Email is already registered." 
-    //          })
-    //     }
-    // })
-    
     let isDup = await User.findOne({email: email}).then(email => {
         return email
     })
