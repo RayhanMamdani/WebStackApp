@@ -17,7 +17,6 @@ import MessageContact from '../components/MessageContact.vue'
       <MessageContact></MessageContact>
       <MessageContact></MessageContact>
       <MessageContact></MessageContact>
-
     </div>
     <div class="column">
       <div class="containercenter"> 

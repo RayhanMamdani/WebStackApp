@@ -5,7 +5,7 @@
 
     }
     .quantity{
-        width: 30%;
+        width: 40px;
     }
     h2{
         font-size: 20px;
@@ -26,6 +26,11 @@
             justify-content: center;
         }
     }
+    @media only screen and (max-width: 1222px) and (min-width: 850px) {
+        .remove-button{
+            width: 120px;
+        }
+    }
 </style>
 
 <template>
@@ -43,12 +48,12 @@
         <div class="column centered cart-item">
             <h3>$22.12</h3> <!--Random Values-->
         </div>
-        <div class="column centered is-one-half cart-item">
-            <button class="button">-</button>
+        <div class="column is-one-half centered cart-item">
+            <button class="button quantity">-</button>
             <input placeholder="1" class="input quantity" type="number" min="0">
-            <button class="button">+</button>
+            <button class="button quantity">+</button>
 
-            <button class="button is-danger"><i class="fa-solid fa-x"></i></button>
+            <button class="button is-danger remove-button"><i class="fa-solid fa-x"></i></button>
             
         </div>
     </div>

@@ -7,9 +7,8 @@ import { ref } from 'vue';
 
 <style scoped>
     .alignleft{
-  float: left;
-  margin-left: 20px;
-
+        float: left;
+        margin-left: 20px;
     }
 
     .alignright{
@@ -25,6 +24,7 @@ import { ref } from 'vue';
     }
     .cost{
         height: 275px;
+        margin: auto;
     }
     
     header{
@@ -43,7 +43,7 @@ import { ref } from 'vue';
         align-items: center !important;
         font-size: 50px;
     }
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 769px) {
         .no-mobile{
             display: none;
         }
@@ -73,8 +73,7 @@ import { ref } from 'vue';
 
         </div>
         <div class="column ">
-        <div class="card">
-
+        <div class="card" style="margin: auto">
         <div class="card-content cost">
                 <h1 class="alignright">$50.00</h1>
                 <h1>Total</h1>

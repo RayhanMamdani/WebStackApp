@@ -1,5 +1,5 @@
 <template>
-<div class="card">
+<div class="card message-card" style="width: fit-content !important; height: fit-content !important;">
     <div class="card-content">
         <div class="columns">
         <div class="column is-one-fifth">
@@ -19,4 +19,8 @@
         font-weight: bold;
         font-size: 16px;
     }
+    .message-card{
+        margin: 0;
+    }
+
 </style>

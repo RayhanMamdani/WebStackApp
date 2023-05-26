@@ -29,7 +29,7 @@
 	
 	
 		<div class="right">
-		<h5 style="font-size: 85px; margin-top:50px;">Sign Up</h5>
+		<h5 style="font-size: 300%; margin-top:50px;">Sign Up</h5>
    
 
     <div class="wrapper">
