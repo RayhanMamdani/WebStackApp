@@ -2,11 +2,39 @@
 import NavBar from '../components/NavBar.vue';
 import Cards from '../components/Cards.vue';
 import SearchBar from '../components/SearchBar.vue';
+import axios from 'axios';
+
 import { ref } from 'vue';
-import card from '../FilterCards'
 const showDiv = ref(false);
 const toggleDiv = () => (showDiv.value = !showDiv.value);
+
+
+const params = new URLSearchParams(window.location.search);
+const searchParam = params.get('search');
+let data = JSON.stringify({
+  "searchTerm": "julllllt"
+});
+console.log(data);
+
+let config = {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'http://localhost:3000/products',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
 </script>
+
 
 <style scoped>
   

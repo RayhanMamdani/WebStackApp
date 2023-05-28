@@ -2,6 +2,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import SearchBar from '../components/SearchBar.vue';
+
 </script>
 <template>
     <div class="bg">

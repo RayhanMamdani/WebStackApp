@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 3000;
 
 let idNUM = 2;
 
+  const uri = 'mongodb://' + PORT;
+
 app.use(cors());
 app.use(bodyParser.json());
 app.listen(PORT, () => {
@@ -27,29 +29,36 @@ app.get('/', (req, res) => res.send('Endpoint created'));
 
 app.get('/products', async (req, res) => {
     try {
-        const products = await product.find({});
-        res.json(products)
-    } catch (err) {
-        res.status(500).json({ error: err.message }); 
-    }
-});
-
-app.post('/products', async (req, res) => {
-    try {
-        const newProduct = {
-            product_name: req.body.product_name,
-            price: req.body.price,
-            description: req.body.description,
-            quantity: req.body.quantity
-        }
-        console.log(newProduct)
-        const productTest = await product.create(newProduct)
-        res.send(productTest)
-        newProduct.save();
+        const regex = new RegExp(req.query.searchTerm, 'gmi');
+        const products = await product.find({
+            $or: [
+                { product_name: regex},
+                { description: regex}
+            ]
+        });
+        console.log(products); // Log the products
+        res.json(products);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
-})
+});
+
+// app.post('/products', async (req, res) => {
+//     try {
+//         const newProduct = {
+//             product_name: req.body.product_name,
+//             price: req.body.price,
+//             description: req.body.description,
+//             quantity: req.body.quantity
+//         }
+//         console.log(newProduct)
+//         const productTest = await product.create(newProduct)
+//         res.send(productTest)
+//         newProduct.save();
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// })
 
 app.get('/products/:id', async (req, res) => {
     try {
@@ -60,6 +69,7 @@ app.get('/products/:id', async (req, res) => {
     }
 })
 //get userRouts
-const users = require('./api/UserRoutes')
+const users = require('./api/UserRoutes');
+const { faDatabase } = require('@fortawesome/free-solid-svg-icons');
 app.use('/api/users', users)
 
