@@ -29,21 +29,23 @@
 	
 	
 		<div class="right">
-		<h5 style="font-size: 85px; margin-top:50px;">Sign Up</h5>
+		<h5 style="font-size: 300%; margin-top:50px;">Sign Up</h5>
    
 
     <div class="wrapper">
       <p>Create an account right now! It takes less than a few minutes!!</p>
 		<div class="inputs">
-			<input type="email" placeholder="email">
+      <input v-model="name" type="text" placeholder="name"  required>
+
+			<input v-model="email" type="email" placeholder="email">
       
 			<br>
-			<input type="password" placeholder="password">
+			<input v-model="password" type="password" placeholder="password">
 		
-      <input type="password" placeholder="confirm password"  required>
+      <input v-model="confirmPassword" type="password" placeholder="confirm password"  required>
 
-      <input type="text" placeholder="address"  required>
-      <input type="number" placeholder="age"  required>
+      <input v-model="address" type="text" placeholder="address"  required>
+      <input v-model="age" type="number" placeholder="age"  required>
 
     </div>
 			
@@ -59,7 +61,9 @@
 		</div>
 			
 			<br>
-			<button>Login</button>
+      <form v-on:submit="login">
+			  <button type="submit">Sign Up</button>
+      </form>
 	</div>
 	
 </div>
@@ -72,6 +76,58 @@
 <br>
 
 </template>
+
+<script>
+
+ 
+    import {ref} from 'vue'
+    import axios from 'axios'
+
+    export default {
+
+        data() {
+            return {
+                name: '',
+                email: '',
+                age: '',
+                address: '',
+                password: '',
+                confirmPassword: ''
+            }
+        },
+
+        name: "login",
+        methods: {
+            login(e) {
+              console.log(this.name)
+              console.log(this.email)
+              console.log(this.age)
+              console.log(this.address)
+              console.log(this.password)
+              console.log(this.confirmPassword)
+
+                e.preventDefault()
+                let url = "http://localhost:3000/api/users/register/"
+                console.log(url)
+                axios.post(url, {
+                  "name": this.name,
+                  "age": this.age,
+                  "address": this.address,
+                  "email": this.email,
+                  "password": this.password,
+                  "confirmPassword": this.confirmPassword
+                }).then((response) => {
+                    console.log(response)
+                }, {
+                    withCredentials: true,
+                    maxRedirects: 1
+                })
+
+            }
+        }
+    }
+
+</script>
 
 <style scoped>
   body {

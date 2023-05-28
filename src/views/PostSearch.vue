@@ -135,8 +135,8 @@ input:checked + .slider:before {
 }
 
 .button-filter{
-  padding: 20px;
-  bottom : 20px;
+    padding: 20px;
+    bottom : 20px;
 }
 
 .moveup{
@@ -148,11 +148,10 @@ input:checked + .slider:before {
 
 <template>
     <NavBar></NavBar>
-    <SearchBar :font-color="'black'" style="margin-top: -50px;"></SearchBar>
-
+    <SearchBar :font-color="'black'" style="margin-top: -20px;"></SearchBar>
+    <button @click="toggleDiv" class="button button-filter"><i class="fa-solid fa-bars"></i></button>
 
     <div>
-        <button @click="toggleDiv" class="button button-filter"><i class="fa-solid fa-bars"></i></button>
         
         <div class="columns">
         <div v-if="showDiv" class="column is-one-quarter filter">

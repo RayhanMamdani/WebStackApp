@@ -6,6 +6,9 @@ const passport = require('passport')
 const mongoose = require('mongoose')
 const User = require('../models/users')
 
+router.get('/test', async (req, res) => {
+    res.send("hello")
+})
 
 //register router
 router.post('/register', async (req, res) => {
