@@ -61,7 +61,7 @@ export default {
         
 <RouterLink to="/ProductInfo">
         <div class="card-footer">
-            <button>
+            <button @click="addParameter">
                 
                 Buy now
             </button>
