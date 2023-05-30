@@ -8,7 +8,7 @@ const messages = require('./models/messages');
 const product = require('./models/product');
 const rating = require('./models/ratings');
 const { clearConfigCache } = require('prettier');
-const mongoose = require('mongoose');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,8 +35,7 @@ app.get('/products', async (req, res) => {
         const products = await product.find({
             $or: [
                 { product_name: regex},
-                { description: regex},
-                { _id: regex }
+                { description: regex}
             ]
         });
         console.log(products); // Log the products
@@ -46,9 +45,37 @@ app.get('/products', async (req, res) => {
     }
 });
 
+app.post('/products', async (req, res) => {
+    try {
+        const newProduct = {
+            product_name: req.body.product_name,
+            price: req.body.price,
+            description: req.body.description,
+            quantity: req.body.quantity
+        };
+
+        console.log(newProduct);
+        const createdProduct = await product.create(newProduct);
+        res.send(createdProduct);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+// app.get('/products/:id', async (req, res) => {
+//     try {
+//         const newProduct = products.find(p => p.id === parseInt(req.params.id))
+//         res.json(newProduct);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// })
+
+
 app.get('/products/productInfo', async (req, res) => {
     try {
-        const productId = req.body.searchTerm;
+        const productId = req.query.searchTerm;
         console.log(productId);
         const productfound = await product.findById(productId); // Assuming your model is named 'Product'
         
@@ -64,36 +91,7 @@ app.get('/products/productInfo', async (req, res) => {
     }
 });
 
-
-
-
-app.post('/products', async (req, res) => {
-    try {
-        const newProduct = {
-            product_name: req.body.product_name,
-            price: req.body.price,
-            description: req.body.description,
-            quantity: req.body.quantity
-        }
-        console.log(newProduct)
-        const productTest = await product.create(newProduct)
-        res.send(productTest)
-        newProduct.save();
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-})
-
-app.get('/products/:id', async (req, res) => {
-    try {
-        const newProduct = products.find(p => p.id === parseInt(req.params.id))
-        res.json(newProduct);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-})
 //get userRouts
 const users = require('./api/UserRoutes');
 const { faDatabase } = require('@fortawesome/free-solid-svg-icons');
 app.use('/api/users', users)
-

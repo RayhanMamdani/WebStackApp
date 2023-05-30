@@ -48,16 +48,16 @@ const handleSearch = (search) => {
   
 }
 // Register the event listener for the 'search' event on the component
-onMounted(() => {
-  const searchHandler = (event) => handleSearch(event.detail);
-  // Register the event listener on the component
-  document.querySelector('#searchbar').addEventListener('search', searchHandler);
+// onMounted(() => {
+//   const searchHandler = (event) => handleSearch(event.detail);
+//   // Register the event listener on the component
+//   document.querySelector('#searchbar').addEventListener('search', searchHandler);
   
-  // Cleanup: Remove the event listener when the component is unmounted
-  onUnmounted(() => {
-    document.querySelector('#searchbar').removeEventListener('search', searchHandler);
-  });
-});
+//   // Cleanup: Remove the event listener when the component is unmounted
+//   onUnmounted(() => {
+//     document.querySelector('#searchbar').removeEventListener('search', searchHandler);
+//   });
+// });
 </script>
 
 

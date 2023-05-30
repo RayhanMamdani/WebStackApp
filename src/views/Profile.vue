@@ -1,6 +1,6 @@
 <script setup>
     import NavBar from '../components/NavBar.vue'
-    import Cards from '../components/Cards.vue'
+    // import Cards from '../components/Cards.vue'
 
 </script>
 
@@ -52,12 +52,12 @@
     <div class="column"> -->
         <h1 class="productsSelling">John Smith is selling:</h1>
         <hr>
-        <div class="card-container">
+        <!-- <div class="card-container"> -->
+          <!-- <Cards></Cards>
           <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
+          <Cards></Cards> -->
  
-        </div>
+        <!-- </div> -->
     <!-- </div>
 </div> -->
 

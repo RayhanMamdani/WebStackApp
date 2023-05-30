@@ -1,9 +1,7 @@
-<script setup>
-import SearchBar from './SearchBar.vue';
-</script>
+
+
 
 <template>
-  <SearchBar :font-color="'black'" style="margin-top:-50px;"></SearchBar>
 
     <div class="card">
   <nav>
@@ -17,10 +15,9 @@ import SearchBar from './SearchBar.vue';
     <img  style="margin-top: 50px;" src="../images/card-img.png">
   </div>
   <div class="description">
-    <h2>Nike Running Shoes</h2>
-    <h4>New</h4>
+    <h2>{{ title }}</h2>
     <h1>$169.00</h1>
-    <p>I'm selling my gently used Nike Air Max sneakers in size 9.5. These sneakers have been worn a few times but are still in great condition. They have a stylish black and white design with a comfortable cushioned sole that's perfect for running or everyday wear.</p>
+    <p>{{ description }}</p>
     <button>Add to Cart</button>
     <button>Wishlist</button>
     <div class="columns">
@@ -193,6 +190,16 @@ export default {
   components: {
     Map
   },
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       show: false
@@ -201,6 +208,7 @@ export default {
   methods: {
     showComponent() {
       this.show = !this.show    }
-  }
+  },
+  
 }
 </script>

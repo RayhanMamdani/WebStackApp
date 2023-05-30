@@ -1,7 +1,60 @@
 <script setup>
     import NavBar from '../components/NavBar.vue'
     import Cards from '../components/Cards.vue'
+    import axios from 'axios';
     import { ref } from 'vue';
+    const productName = ref('');
+const productPrice = ref('');
+const productDescription = ref('');
+const productQuantity = ref('');
+
+    const postProduct = (event) => {
+  event.preventDefault();
+  // Access the values from the textboxes here
+  const name = productName.value;
+  const price = productPrice.value;
+  const description = productDescription.value;
+  const quantity = productQuantity.value;
+let data = JSON.stringify({
+  "product_name": name,
+  "price": price,
+  "description": description,
+  "quantity": quantity
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'http://localhost:3000/products',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+
+  // Perform the necessary actions with the values (e.g., send a POST request)
+  // ...
+};
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  
+  if (file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      productImage.value = reader.result; // Save the base64 image string
+      console.log(render.result)
+    };
+  }
+};
 
 </script>
 
@@ -99,23 +152,26 @@
 
                 <form>
                     <label for="">Product Name</label>
-                        <input class="input" type="text" >
+                        <input v-model="productName"  class="input" type="text" >
                     <label for="">Product Price</label>
-                        <input class="input" type="text" >
+                        <input v-model="productPrice" class="input" type="text" >
                     <label for="">Product Description</label>
-                        <input class="input" type="text" >
+                        <input v-model="productDescription" class="input" type="text" >
+                        <label for="">Quantity</label>
+                        <input v-model="productQuantity" class="input" type="number" >
                     <!-- <label>
                         <i class="fa-solid fa-arrow-up-from-bracket"> </i>
                         Upload File
                     </label> -->
                     <br>
                     <br>
-                    <input type="file" id="upload" accept="image/png, image/jpeg" hidden/>
-                    <label class="uploadLabel" for="upload">Choose file</label>
-                    
+                    <label class="uploadLabel">
+      Choose file
+      <input ref="fileInput" type="file" id="upload" accept="image/png, image/jpeg" style="display: none;" @change="handleFileChange" />
+    </label>
                     <!-- <input type="file" id="upload" name="filename" >
                     <label class="uploadButton" for="upload">Choose File</label> -->
-                    <input type="submit" class="button">
+                    <input @click="postProduct" type="submit" class="button">
           </form>
             </div>
 
@@ -134,16 +190,16 @@
         </div> -->
 
         <!--Fix to use card container later this is a placeholder-->
-        <div class="card-container">
+        <!-- <div class="card-container">
             <Cards :isDisplayed="'block'"></Cards>
             <Cards :isDisplayed="'block'"></Cards>
             <Cards :isDisplayed="'block'"></Cards>
             <Cards :isDisplayed="'block'"></Cards>
 
-
+        </div> -->
             <!-- <div class="control">
             </div> -->
-        </div>
+    
 
         <!-- <div class="columns">
             <div class="column">
