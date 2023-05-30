@@ -7,6 +7,10 @@ export default {
     isDisplayed: {
       type: String,
       default: 'none'
+    },
+    product: {
+        type: Object,
+        required: true
     }
   }
 }
@@ -36,8 +40,7 @@ export default {
     <div class="card">
 
         <div class="card-header">
-            <h3>Nike Running Shoes</h3>
-            <span>New</span>
+            <h3>{{product.product_name}}</h3>
         </div>
 
         <div class="card-img">
@@ -48,11 +51,12 @@ export default {
         <div class="card-details">
             <div class="price">
                 <p>Price</p>
-                <strong>$169.00</strong>
+                <strong>${{product.price}}</strong>
             </div>
             
         </div>
-        <p>I'm selling my gently used Nike Air Max sneakers in size 9.5. These sneakers have been worn a few times but are still in great condition. They have a stylish black and white design with a comfortable cushioned sole that's perfect for running or everyday wear.</p>
+        <!-- <p>I'm selling my gently used Nike Air Max sneakers in size 9.5. These sneakers have been worn a few times but are still in great condition. They have a stylish black and white design with a comfortable cushioned sole that's perfect for running or everyday wear.</p> -->
+        <p>{{product.product_description}}</p>
         <br>
         
 <RouterLink to="/ProductInfo">

@@ -32,6 +32,7 @@ const performSearch = () => {
   axios.request(config)
     .then((response) => {
       console.log(JSON.stringify(response.data));
+      products.value = response.data;
     })
     .catch((error) => {
       console.log(error);
@@ -237,13 +238,7 @@ input:checked + .slider:before {
       </div>
       <div class="column">
         <div class="card-container">
-          <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
+          <Cards v-for="product in products" :key="product.id" :product="product"></Cards>
         </div>
       </div>
    </div>

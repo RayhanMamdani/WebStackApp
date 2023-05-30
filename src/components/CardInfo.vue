@@ -1,5 +1,4 @@
 <script setup>
-import Map from '../components/Map.vue'
 import SearchBar from './SearchBar.vue';
 </script>
 
@@ -7,9 +6,6 @@ import SearchBar from './SearchBar.vue';
   <SearchBar :font-color="'black'" style="margin-top:-50px;"></SearchBar>
 
   <button @click=showComponent class="button"><i class="fa-solid fa-map-location-dot"></i></button>
-    <div v-if="show">
-      <Map :class="{ 'Map--front': show }"/>
-      </div>
     <div class="card">
   <nav>
     <RouterLink to="/PostSearch">

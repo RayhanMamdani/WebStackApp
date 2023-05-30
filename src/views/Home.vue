@@ -13,7 +13,7 @@ import NavBar from '../components/NavBar.vue';
 </div>
 <br>
 <br>
-<div style="margin-left: 50px;">
+<!-- <div style="margin-left: 50px;">
 <h1 style="font-weight:500;" class="is-size-3">Listed Recently</h1>
 <br>
 <div class="center">
@@ -23,7 +23,7 @@ import NavBar from '../components/NavBar.vue';
    <Cards></Cards>
    <Cards></Cards>
 </div>
-</div>
-
-</div>
+</div> -->
+<!-- 
+</div> -->
 </template>
