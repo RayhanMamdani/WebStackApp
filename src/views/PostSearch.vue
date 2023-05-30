@@ -4,43 +4,56 @@ import NavBar from '../components/NavBar.vue';
 import Cards from '../components/Cards.vue';
 import SearchBar from '../components/SearchBar.vue';
 import axios from 'axios';
-import {onMounted} from 'vue';
+import { onMounted, onUnmounted } from 'vue';
+import router from '../router';
 import { ref } from 'vue';
-onMounted(() => {
-  this.$watch('search', this.handleSearch);
-}),
-
-function handleSearch(searchQuery) {
-    console.log('Search query:', searchQuery);
-  }
-
 const showDiv = ref(false);
 const toggleDiv = () => (showDiv.value = !showDiv.value);
-
+// Remove the existing code for reading searchParam and config
+let searchTerm = ref('');
 let params = new URLSearchParams(window.location.search);
+let  searchParam = params.get('search');
+searchTerm = searchParam;
+console.log(searchTerm)
+const performSearch = () => {
+  let config = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:3000/products',
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    params: {
+      searchTerm: searchTerm
+    }
+  };
+  axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+performSearch();
 
-let searchParam = params.get('search');
-
-console.log(searchParam)
-
-let config = {
-  method: 'get',
-  maxBodyLength: Infinity,
-  url: 'http://localhost:3000/products',
-  headers: { 
-    'Content-Type': 'application/json'
-  },
-  params:{
-    searchTerm:searchParam
-  }
-};
-
-axios.request(config)
-.then((response) => {
-  console.log(JSON.stringify(response.data));
-})
-.catch((error) => {
-  console.log(error);
+// Listen for the 'search' event emitted by SearchBar component
+const handleSearch = (search) => {
+  searchTerm = search;
+  console.log('Search term:', search);
+  performSearch();
+  
+}
+// Register the event listener for the 'search' event on the component
+onMounted(() => {
+  const searchHandler = (event) => handleSearch(event.detail);
+  // Register the event listener on the component
+  document.querySelector('#searchbar').addEventListener('search', searchHandler);
+  
+  // Cleanup: Remove the event listener when the component is unmounted
+  onUnmounted(() => {
+    document.querySelector('#searchbar').removeEventListener('search', searchHandler);
+  });
 });
 </script>
 
@@ -57,11 +70,9 @@ axios.request(config)
       text-align: center;
     color: black;
   }
-
   hr {
     margin: 5px;  
   }
-
   /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -69,14 +80,12 @@ axios.request(config)
   width: 60px;
   height: 34px;
 }
-
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 /* The slider */
 .slider {
   position: absolute;
@@ -89,7 +98,6 @@ axios.request(config)
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -101,38 +109,30 @@ axios.request(config)
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 input:checked + .slider {
   background-color: #2196F3;
 }
-
 input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 }
-
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
-
 .alignleft{
   float: left;
 }
-
 .alignright{
   float: right
 }
-
 .filterSection{
   margin: 20px;
   margin-left: 50px;
@@ -142,24 +142,19 @@ input:checked + .slider:before {
   color:black;
   height: 500px;
 }
-
 .button-filter{
     padding: 20px;
     bottom : 20px;
 }
-
 .moveup{
   margin-top:-200px;
 }
-
 </style>
-
 
 <template>
     <NavBar></NavBar>
-    <SearchBar  :font-color="'black'" style="margin-top: -20px;"></SearchBar>
+    <SearchBar  @search="handleSearch" :font-color="'black'" style="margin-top: -20px;"></SearchBar>
     <button @click="toggleDiv" class="button button-filter"><i class="fa-solid fa-bars"></i></button>
-
     <div>
         
         <div class="columns">
@@ -174,7 +169,6 @@ input:checked + .slider:before {
             <span class="slider round"></span>
             </label>
           </div>
-
           <div class="filterSection">
             <div class="field">   
               <label for="" class="alignleft">Reviews</label>
@@ -189,7 +183,6 @@ input:checked + .slider:before {
               </span>
            </div> 
          </div>
-
          <div class="filterSection">
             <div class="field">   
               <label for="" class="alignleft">Condition</label>
@@ -203,7 +196,6 @@ input:checked + .slider:before {
            </div> 
          </div>
 
-
          <div class="filterSection">
             <div class="field">   
               <label for="" class="alignleft">Date Posted</label>
@@ -215,7 +207,6 @@ input:checked + .slider:before {
               </span>
            </div> 
          </div>
-
          <div class="filterSection">
           <label for="" class="alignleft">Price</label>
           <div class="field has-addons alignright ">
@@ -225,10 +216,8 @@ input:checked + .slider:before {
             <div class="control alignright">
                 <input class="input" type="text" placeholder="Max" style="width:100px">
             </div>
-
           </div>
         </div>
-
         <div class="filterSection">
             <div class="field">   
               <span class="select alignright">
@@ -240,11 +229,9 @@ input:checked + .slider:before {
               </span>
            </div> 
          </div>
-
         <div class="filterSection">
           <input type="submit" class="button alignright is-info"> 
         </div>
-
       </div>
       <div class="column">
         <div class="card-container">
@@ -256,13 +243,9 @@ input:checked + .slider:before {
           <Cards></Cards>
           <Cards></Cards>
         </div>
-
       </div>
-
    </div>
   </div>
 
-
    
-
 </template>
