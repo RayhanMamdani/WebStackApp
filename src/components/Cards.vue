@@ -12,6 +12,14 @@ export default {
         type: Object,
         required: true
     }
+  },
+  methods: {
+    showCardInfo(event) {
+      event.preventDefault(); // Prevent form submission
+      const id = this.product._id;
+      // this.$router.push({ name: 'PostSearch', params: { searchTerm: search } });
+      this.$router.push({ path: '/ProductInfo', query: { id } });
+    }
   }
 }
 
@@ -61,7 +69,7 @@ export default {
         
 <RouterLink to="/ProductInfo">
         <div class="card-footer">
-            <button @click="addParameter">
+            <button @click="showCardInfo">
                 
                 Buy now
             </button>

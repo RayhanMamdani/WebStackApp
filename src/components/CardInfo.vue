@@ -5,7 +5,6 @@ import SearchBar from './SearchBar.vue';
 <template>
   <SearchBar :font-color="'black'" style="margin-top:-50px;"></SearchBar>
 
-  <button @click=showComponent class="button"><i class="fa-solid fa-map-location-dot"></i></button>
     <div class="card">
   <nav>
     <RouterLink to="/PostSearch">
@@ -27,7 +26,6 @@ import SearchBar from './SearchBar.vue';
     <div class="columns">
       <div class="column">
         <h4>Ben Dover</h4>
-        <button @click=showComponent class="button"><i class="fa-solid fa-map-location-dot"></i></button>
 </div>
 <div class="column">
     

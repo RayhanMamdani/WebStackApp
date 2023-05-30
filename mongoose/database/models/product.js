@@ -25,6 +25,9 @@ var productSchema = new mongoose.Schema({
     ],
     quantity: {
         type: Number
+    }, 
+    user: {
+        type: Object
     }
 });
 
