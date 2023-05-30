@@ -29,6 +29,7 @@ app.get('/', (req, res) => res.send('Endpoint created'));
 
 app.get('/products', async (req, res) => {
     try {
+
         const regex = new RegExp(req.query.searchTerm, 'gmi');
         const products = await product.find({
             $or: [

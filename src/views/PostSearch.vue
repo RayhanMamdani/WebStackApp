@@ -11,10 +11,7 @@ const toggleDiv = () => (showDiv.value = !showDiv.value);
 
 const params = new URLSearchParams(window.location.search);
 const searchParam = params.get('search');
-let data = JSON.stringify({
-  "searchTerm": "julllllt"
-});
-console.log(data);
+
 
 let config = {
   method: 'get',
@@ -23,7 +20,9 @@ let config = {
   headers: { 
     'Content-Type': 'application/json'
   },
-  data : data
+  params:{
+    searchTerm:"jull"
+  }
 };
 
 axios.request(config)
