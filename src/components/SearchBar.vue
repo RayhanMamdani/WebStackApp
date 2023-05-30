@@ -1,4 +1,5 @@
 <template>
+
   <form class="example" action="">
     <div class="control">
       <input placeholder="&#xF002;" :style="{color: fontColor}" id="searchbar" class="input" type="text" />
@@ -21,10 +22,11 @@ methods: {
   addParameter(event) {
     event.preventDefault(); // Prevent form submission
 
-    let value = document.querySelector('#searchbar');
-    const search = value.value || 'default_value';
-    this.$router.push({ path: '/PostSearch', query: { search } });
-  }
+let value = document.querySelector('#searchbar');
+const search = value.value || 'default_value';
+this.$emit('search', search); // Emit the 'search' event with the search term
+this.$router.push('/PostSearch')  
+}
 }
 
 };

@@ -1,17 +1,27 @@
+
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import Cards from '../components/Cards.vue';
 import SearchBar from '../components/SearchBar.vue';
 import axios from 'axios';
-
+import {onMounted} from 'vue';
 import { ref } from 'vue';
+onMounted(() => {
+  this.$watch('search', this.handleSearch);
+}),
+
+function handleSearch(searchQuery) {
+    console.log('Search query:', searchQuery);
+  }
+
 const showDiv = ref(false);
 const toggleDiv = () => (showDiv.value = !showDiv.value);
 
+let params = new URLSearchParams(window.location.search);
 
-const params = new URLSearchParams(window.location.search);
-const searchParam = params.get('search');
+let searchParam = params.get('search');
 
+console.log(searchParam)
 
 let config = {
   method: 'get',
@@ -21,7 +31,7 @@ let config = {
     'Content-Type': 'application/json'
   },
   params:{
-    searchTerm:"jull"
+    searchTerm:searchParam
   }
 };
 
@@ -147,7 +157,7 @@ input:checked + .slider:before {
 
 <template>
     <NavBar></NavBar>
-    <SearchBar :font-color="'black'" style="margin-top: -20px;"></SearchBar>
+    <SearchBar  :font-color="'black'" style="margin-top: -20px;"></SearchBar>
     <button @click="toggleDiv" class="button button-filter"><i class="fa-solid fa-bars"></i></button>
 
     <div>

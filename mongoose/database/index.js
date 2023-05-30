@@ -31,6 +31,7 @@ app.get('/products', async (req, res) => {
     try {
 
         const regex = new RegExp(req.query.searchTerm, 'gmi');
+        console.log(req.query.searchTerm)
         const products = await product.find({
             $or: [
                 { product_name: regex},
