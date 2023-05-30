@@ -5,7 +5,7 @@
 
     }
     .quantity{
-        width: 40px;
+        width: 60px;
     }
     h2{
         font-size: 20px;
@@ -26,9 +26,9 @@
             justify-content: center;
         }
     }
-    @media only screen and (max-width: 1222px) and (min-width: 850px) {
+    @media only screen and (max-width: 1246px) and (min-width: 850px) {
         .remove-button{
-            width: 120px;
+            width: 145px;
         }
     }
 </style>
@@ -49,11 +49,13 @@
             <h3>$22.12</h3> <!--Random Values-->
         </div>
         <div class="column is-one-half centered cart-item">
-            <button class="button quantity">-</button>
-            <input placeholder="1" class="input quantity" type="number" min="0">
-            <button class="button quantity">+</button>
 
-            <button class="button is-danger remove-button"><i class="fa-solid fa-x"></i></button>
+            <button class="button" @click="decreaseQuantity">-</button>
+            <input placeholder="1" class="input quantity" type="number" v-model="quantity" min="0">
+            <button class="button" @click="increaseQuantity">+</button>
+            <button class="button is-danger remove-button" @click="removeItem">
+                <i class="fa-solid fa-x"></i>
+            </button>
             
         </div>
     </div>
@@ -61,3 +63,23 @@
 
 </template>
 
+<script setup>
+import { ref } from 'vue';
+
+const quantity = ref(1); //initial quantity
+
+const decreaseQuantity = () => {
+  if (quantity.value > 0) {
+    quantity.value--;
+  }
+};
+
+const increaseQuantity = () => {
+  quantity.value++;
+};
+
+const removeItem = () => {
+    quantity.value = 0;
+   /**remove it from screen */
+};
+</script>
