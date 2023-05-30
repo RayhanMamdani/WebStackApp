@@ -15,6 +15,8 @@ let params = new URLSearchParams(window.location.search);
 let  searchParam = params.get('search');
 searchTerm = searchParam;
 console.log(searchTerm)
+const products = ref([]);
+
 const performSearch = () => {
   let config = {
     method: 'get',
