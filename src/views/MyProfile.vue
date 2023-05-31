@@ -7,7 +7,7 @@
 const productPrice = ref('');
 const productDescription = ref('');
 const productQuantity = ref('');
-
+const productImage = ref('');
     const postProduct = (event) => {
   event.preventDefault();
   // Access the values from the textboxes here
@@ -19,7 +19,8 @@ let data = JSON.stringify({
   "product_name": name,
   "price": price,
   "description": description,
-  "quantity": quantity
+  "quantity": quantity,
+  "product_image": productImage.value
 });
 
 let config = {
@@ -44,18 +45,18 @@ axios.request(config)
   // ...
 };
 const handleFileChange = (event) => {
-  const file = event.target.files[0];
-  
-  if (file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      productImage.value = reader.result; // Save the base64 image string
-      console.log(render.result)
-    };
-  }
-};
-
+    const file = event.target.files[0];
+    
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        productImage.value = reader.result; // Save the base64 image string
+        console.log(reader.result);
+        
+      };
+    }
+  };
 </script>
 
 

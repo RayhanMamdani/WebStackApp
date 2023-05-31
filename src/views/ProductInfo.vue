@@ -35,6 +35,6 @@ performSearch();
 
 <template>
     <Navbar></Navbar>
-<CardInfo :title="productInfo.product_name" :description="productInfo.description"></CardInfo>
+<CardInfo :price="productInfo.price" :title="productInfo.product_name" :description="productInfo.description"></CardInfo>
 
 </template>

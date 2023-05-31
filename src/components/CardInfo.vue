@@ -16,7 +16,7 @@
   </div>
   <div class="description">
     <h2>{{ title }}</h2>
-    <h1>$169.00</h1>
+    <h1>${{ price }}</h1>
     <p>{{ description }}</p>
     <button>Add to Cart</button>
     <button>Wishlist</button>
@@ -197,6 +197,11 @@ export default {
     },
     description: {
       type: String,
+      required: true
+    
+    },
+    price:{
+      type: Number,
       required: true
     }
   },

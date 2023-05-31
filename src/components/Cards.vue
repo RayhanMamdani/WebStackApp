@@ -52,7 +52,7 @@ export default {
         </div>
 
         <div class="card-img">
-            <img src="../images/card-img.jpg" alt="...">
+            <img :src="product.product_image" alt="...">
             <i class="bx bx-heart"></i>
         </div>
 
