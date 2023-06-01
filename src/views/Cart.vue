@@ -54,7 +54,7 @@ import { ref } from 'vue';
         }
     }   
 </style>
-s
+
 <template>
     <NavBar></NavBar>
     
