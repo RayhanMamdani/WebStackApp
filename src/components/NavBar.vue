@@ -1,12 +1,12 @@
+
 <template>
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <RouterLink to="/">
-
-      <a id="navlogo" class="navbar-item">
-        <img src="../images/vendozalogo2.png" width="190" height="190">
-      </a>
-    </RouterLink>
+        <a id="navlogo" class="navbar-item">
+          <img src="../images/vendozalogo2.png" width="190" height="190">
+        </a>
+      </RouterLink>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -17,8 +17,6 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-    
-
         <RouterLink to="/">
           <a class="navbar-item">
             Auto
@@ -39,7 +37,7 @@
 
         <RouterLink to="/">
           <a class="navbar-item">
-            Sports 
+            Sports
           </a>
         </RouterLink>
 
@@ -58,31 +56,47 @@
                 <i class="fa-solid fa-cart-shopping"></i>
               </RouterLink>
             </a>
-            <a class="button is-light">
-              <RouterLink to="/SignUp">
-                <a>Sign up</a>
-              </RouterLink>
-            </a>
-            <RouterLink to="/Login">
+            <template v-if="localStorageToken === null">
               <a class="button is-light">
-                Log in
+                <RouterLink to="/SignUp">
+                  <a>Sign up</a>
+                </RouterLink>
               </a>
-            </RouterLink>
+              <RouterLink to="/Login">
+                <a class="button is-light">
+                  Log in
+                </a>
+              </RouterLink>
+            </template>
+            <template v-else>
+              <a class="button is-light">
+                <RouterLink to="/MyProfile">
+                  <i class="fa-solid fa-user"></i>
+                  <a>
+                    My Profile
+                  </a>
+                                </RouterLink>
+              </a>
+            </template>
           </div>
         </div>
       </div>
     </div>
   </nav>
   <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </template>
 
+
+
+
 <script>
+
 export default {
   mounted() {
     // Get all "navbar-burger" elements
@@ -102,8 +116,14 @@ export default {
 
       });
     });
+  
+},
+data() {
+    return {
+      localStorageToken: localStorage.getItem("token")
+    }
   }
-}
+} 
 </script>
 
 <style scoped>

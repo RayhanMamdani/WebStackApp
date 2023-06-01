@@ -3,11 +3,15 @@
     import Cards from '../components/Cards.vue'
     import axios from 'axios';
     import { ref } from 'vue';
+    import { onMounted } from '@vue/runtime-core';
+
     const productName = ref('');
 const productPrice = ref('');
 const productDescription = ref('');
 const productQuantity = ref('');
 const productImage = ref('');
+
+
     const postProduct = (event) => {
   event.preventDefault();
   // Access the values from the textboxes here
@@ -25,7 +29,6 @@ let data = JSON.stringify({
 
 
 
-
 let config = {
   method: 'post',
   maxBodyLength: Infinity,
@@ -37,6 +40,12 @@ let config = {
   },
   data : data
 };
+
+let user = axios.get("http://localhost:3000/currentUser", {
+          headers: {
+              'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
+          })
 
 axios.request(config)
 .then((response) => {
@@ -186,8 +195,13 @@ const handleFileChange = (event) => {
     </div>
 
  </div>
- <h1 class="productsSelling">Manage products</h1>
+ <h1 class="productsSelling">Your products</h1>
  <hr>
+ <div class="column">
+        <div class="card-container">
+          <Cards v-for="product in products" :key="product.id" :product="product"></Cards>
+        </div>
+      </div>
  <!-- <div class="card-container">
           <Cards></Cards>
           <Cards></Cards>

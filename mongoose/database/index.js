@@ -60,7 +60,9 @@ app.post('/products', passport.authenticate('jwt', {session: false}), async (req
             user: req.user.id,
             product_image: req.body.product_image,
         };
-
+        console.log(req.user)
+       req.user.products.push(newProduct);
+         req.user.save();
         console.log(newProduct);
         const createdProduct = await product.create(newProduct);
         res.send(createdProduct);
@@ -68,6 +70,7 @@ app.post('/products', passport.authenticate('jwt', {session: false}), async (req
         res.status(500).json({ error: err.message });
     }
 });
+
 
 
 app.get('/messages', passport.authenticate('jwt', {session: false}), (req,res) => {
