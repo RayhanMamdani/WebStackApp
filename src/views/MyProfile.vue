@@ -1,11 +1,36 @@
 <script setup>
-    import NavBar from '../components/NavBar.vue'
-    import Cards from '../components/Cards.vue'
-    import axios from 'axios';
-    import { ref } from 'vue';
-    import { onMounted } from '@vue/runtime-core';
+import NavBar from '../components/NavBar.vue';
+import Cards from '../components/Cards.vue';
+import axios from 'axios';
+import { ref, onMounted } from 'vue';
 
-    const productName = ref('');
+let user = ref(null); // Initialize with null or any default value
+let cards = ref([]);
+
+onMounted(() => {
+  axios.get("http://localhost:3000/currentUser", {
+    headers: {
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
+  })
+    .then(response => {
+      user.value = response.data; // Store the fetched user data in the user ref
+      cards.value = combineArrays(JSON.parse(JSON.stringify(user.value.user.products)));
+      console.log(cards.value);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+function combineArrays(arrayOfArrays) {
+  const combinedArray = arrayOfArrays.reduce((result, currentArray) => {
+    return result.concat(currentArray);
+  }, []);
+  return combinedArray;
+}
+
+  const productName = ref('');
 const productPrice = ref('');
 const productDescription = ref('');
 const productQuantity = ref('');
@@ -41,11 +66,7 @@ let config = {
   data : data
 };
 
-let user = axios.get("http://localhost:3000/currentUser", {
-          headers: {
-              'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
-            }
-          })
+
 
 axios.request(config)
 .then((response) => {
@@ -199,7 +220,7 @@ const handleFileChange = (event) => {
  <hr>
  <div class="column">
         <div class="card-container">
-          <Cards v-for="product in products" :key="product.id" :product="product"></Cards>
+          <Cards v-for="product in cards" :key="product.id" :product="product"></Cards>
         </div>
       </div>
  <!-- <div class="card-container">
