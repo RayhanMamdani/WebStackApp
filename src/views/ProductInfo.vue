@@ -1,4 +1,5 @@
 <script setup>
+// import { response } from 'express';
 import CardInfo from '../components/CardInfo.vue'
 import Navbar from '../components/NavBar.vue'
 import axios from 'axios';
@@ -7,7 +8,7 @@ let params = new URLSearchParams(window.location.search);
 let  searchParam = params.get('id');
 console.log(searchParam);
 const productInfo = ref([]);
-
+const userInfo = ref([]);
 const performSearch = () => {
   let config = {
     method: 'get',
@@ -24,10 +25,24 @@ const performSearch = () => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       productInfo.value = response.data;
+      userInfo.user = axios.get("http://localhost:3000/userById", {
+          params: {
+            id: productInfo.value.user
+          }
+        }).then(response => {
+          userInfo.value = response.data;
+          // console.log("tkjsdhfk")
+          // console.log(userInfo.value.user)
+      })
+
+
+
     })
     .catch((error) => {
       console.log(error);
     });
+
+
 }
 performSearch();
 
@@ -35,6 +50,6 @@ performSearch();
 
 <template>
     <Navbar></Navbar>
-<CardInfo :price="productInfo.price" :title="productInfo.product_name" :description="productInfo.description"></CardInfo>
+<CardInfo :price="productInfo.price" :title="productInfo.product_name" :description="productInfo.description" :userId="productInfo.user" :name="userInfo.user.name"></CardInfo>
 
-</template>
+</template> 

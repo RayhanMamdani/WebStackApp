@@ -49,13 +49,13 @@ const router = createRouter({
       component: Cart
     },
     {
-      path: '/Profile',
+      path: '/Profile/:id',
       name: 'Profile',
-      component: Profile
+      component: Profile,
     },
 
     {
-      path: '/Chatbox',
+      path: '/Chatbox/:id',
       name: 'Chatbox',
       component: Chatbox
     },

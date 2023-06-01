@@ -34,8 +34,35 @@
   </section>
 </template>
 
+
+<script setup>
+import { ref, toRaw } from 'vue';
+import axios from 'axios';
+
+// const userInfo = ref([]);
+// // const reciever = window.location.href.split('/').reverse()[0]
+// userInfo.value = axios.get("http://localhost:3000/currentUser", {
+//     headers: {
+//         'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+//       },
+//   })
+
+
+
+
+        
+// userInfo.user = axios.get("http://localhost:3000/currentUser", {
+//   headers: {
+//       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+//     },
+// })
+
+</script>
+
 <script>
 export default {
+
+
   data() {
     return {
       messages: [
@@ -48,6 +75,10 @@ export default {
         },
       
       ],
+
+      
+
+
       newMessage: '',
     };
   },
@@ -55,6 +86,41 @@ export default {
     sendMessage() {
       if (this.newMessage.trim() !== '') {
         const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        axios.get("http://localhost:3000/currentUser", {
+          headers: {
+              'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
+          }).then(res =>{
+            
+              let config = {
+                method: 'post',
+                maxBodyLength: Infinity,
+                url: 'http://localhost:3000/messages',
+                headers: { 
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+                
+                },
+                data : {
+                  sendId: res.data.user._id,
+                  recId: window.location.href.split('/').reverse()[0],
+                  time: currentTime,
+                  text: this.newMessage
+                }
+              };
+
+              axios.request(config)
+              .then((response) => {
+                console.log(JSON.stringify(response.data));
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+
+    
+          })
+
+
         this.messages.push({
           type: 'right',
           avatar: 'https://image.flaticon.com/icons/svg/145/145867.svg',
@@ -62,6 +128,8 @@ export default {
           time: currentTime,
           text: this.newMessage,
         });
+
+
         this.newMessage = '';
       }
     },

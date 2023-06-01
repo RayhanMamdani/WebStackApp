@@ -22,7 +22,11 @@
     <button>Wishlist</button>
     <div class="columns">
       <div class="column">
-        <h4>Ben Dover</h4>
+        <h4>
+          <RouterLink :to="{ path: `Profile/${userId}` }">
+            {{ name }} 
+          </RouterLink>
+        </h4>
 </div>
 <div class="column">
     
@@ -198,10 +202,13 @@ export default {
     description: {
       type: String,
       required: true
-    
     },
-    price:{
-      type: Number,
+    name: {
+      type: String,
+      required: true
+    },
+    userId: {
+      type: String,
       required: true
     }
   },

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
-const passport = require('passport')
+const key = require('../db').key
 const mongoose = require('mongoose')
 const User = require('../models/users')
 
@@ -59,21 +59,50 @@ router.post('/register', async (req, res) => {
     })
 
 })
+router.post('/login', async (req, res) => {
 
-router.post('/products', async (req, res) => {
-    try {
-        const newProduct = {
-            product_name: req.body.product_name,
-            price: req.body.price,
-            description: req.body.description,
-            quantity: req.body.quantity
+    User.findOne({ email: req.body.email}).then(user => {
+        if(!user){
+            return res.status(400).json({
+                msg: "Username not found.",
+                success: false
+            });
         }
-        console.log(newProduct)
-        const productTest = await product.create(newProduct)
-        // res.send(productTest)
-        productTest.save();
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+        bcrypt.compare(req.body.password, user.password).then(match => {
+            
+            if(match){
+                const data = {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    
+                }
+                
+                jwt.sign(data, key, { expiresIn: 86400000 }, (err, token) => {
+                    res.status(200).json({
+                        token: token,
+                        msg: "Login successful",
+                        success: true,
+                        isUser: user.isUser,
+                        isBusiness: user.isBusiness,
+                        isAdmin: user.isAdmin
+                        
+                    });
+                })
+
+            }else{
+            return res.status(404).json({
+                msg: "Password is incorrect",
+                success: false
+            });
+            }
+        })
+    })
+
+
+
+
 })
+
+
 module.exports = router

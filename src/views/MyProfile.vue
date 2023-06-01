@@ -23,12 +23,17 @@ let data = JSON.stringify({
   "product_image": productImage.value
 });
 
+
+
+
 let config = {
   method: 'post',
   maxBodyLength: Infinity,
   url: 'http://localhost:3000/products',
   headers: { 
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+  
   },
   data : data
 };
