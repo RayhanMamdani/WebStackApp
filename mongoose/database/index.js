@@ -81,9 +81,8 @@ app.get('/messages', passport.authenticate('jwt', {session: false}), (req,res) =
 app.post('/messages', passport.authenticate('jwt', {session: false}), (req,res) => {
     User.findOne({_id: req.user.id}).then(userOne => {
         User.findOne({_id: req.body.recId}).then(userTwo => {
-
-            console.log(userOne)
-            console.log(userTwo)
+            // Messages.findOne({init_id: req.user.id, recieve_id: req.body.recId}).
+            
             res.status(200).json({ chain: "test" });
         })
 

@@ -91,21 +91,33 @@ export default {
               'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
           }).then(res =>{
-            console.log("us")
-            console.log(res)
-              let fulfill = axios.post('http://localhost:3000/messages', {
-                headers: {
+            
+              let config = {
+                method: 'post',
+                maxBodyLength: Infinity,
+                url: 'http://localhost:3000/messages',
+                headers: { 
+                  'Content-Type': 'application/json',
                   'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+                
                 },
-                msg: {
+                data : {
                   sendId: res.data.user._id,
                   recId: window.location.href.split('/').reverse()[0],
-
                   time: currentTime,
                   text: this.newMessage
-                },
-                
+                }
+              };
+
+              axios.request(config)
+              .then((response) => {
+                console.log(JSON.stringify(response.data));
               })
+              .catch((error) => {
+                console.log(error);
+              });
+
+    
           })
 
 
