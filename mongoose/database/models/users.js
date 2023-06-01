@@ -31,7 +31,7 @@ var usersSchema = new mongoose.Schema({
     },
     products: [
         {
-            type: String
+            type: Array
         }
     ]
 });
