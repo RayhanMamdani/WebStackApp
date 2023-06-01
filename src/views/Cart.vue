@@ -48,6 +48,11 @@ import { ref } from 'vue';
             display: none;
         }
     }
+    @media only screen and (max-width: 566px) {
+        .cart-total{
+            height: 275px !important;
+        }
+    }   
 </style>
 
 <template>
@@ -73,7 +78,7 @@ import { ref } from 'vue';
 
         </div>
         <div class="column ">
-        <div class="card" style="margin: auto">
+        <div class="card cart-total" style="margin: auto">
         <div class="card-content cost">
                 <h1 class="alignright">$50.00</h1>
                 <h1>Total</h1>

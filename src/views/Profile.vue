@@ -2,7 +2,6 @@
     import NavBar from '../components/NavBar.vue'
     import axios from 'axios';
     import { ref } from 'vue';
-    import { useParams } from "react-router"
     // // import Cards from '../components/Cards.vue'
     const userInfo = ref('');
     const userId = window.location.href.split('/').reverse()[0]
