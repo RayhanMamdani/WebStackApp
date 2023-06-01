@@ -86,12 +86,12 @@ export default {
     sendMessage() {
       if (this.newMessage.trim() !== '') {
         const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        let msg = this.newMessage
         axios.get("http://localhost:3000/currentUser", {
           headers: {
               'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
           }).then(res =>{
-            
               let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
@@ -105,7 +105,7 @@ export default {
                   sendId: res.data.user._id,
                   recId: window.location.href.split('/').reverse()[0],
                   time: currentTime,
-                  text: this.newMessage
+                  text: msg
                 }
               };
 

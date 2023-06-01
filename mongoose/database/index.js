@@ -81,16 +81,36 @@ app.get('/messages', passport.authenticate('jwt', {session: false}), (req,res) =
 })
 
 
-app.post('/messages', passport.authenticate('jwt', {session: false}), (req,res) => {
-    User.findOne({_id: req.user.id}).then(userOne => {
-        User.findOne({_id: req.body.recId}).then(userTwo => {
-            // Messages.findOne({init_id: req.user.id, recieve_id: req.body.recId}).
-            
-            res.status(200).json({ chain: "test" });
-        })
+app.post('/messages', passport.authenticate('jwt', {session: false}), async (req,res) => {
+    let chainOne = await Messages.findOne({idOne: req.user.id, idTwo: req.body.recId})
+    let chainTwo = await Messages.findOne({idOne: req.body.recId, idTwo: req.user.id})
 
+    let handler = (chain) => {
+        chain.message_content.push(req.body.text)
+        chain.save()
+        res.status(200).json({success: true})
         
-    })
+        
+    }
+    if (chainOne){
+        handler(chainOne)
+    }else if (chainTwo){
+        handler(chainTwo)
+    }else{
+        console.log(req.body)
+        Messages.create({
+            idOne: req.user.id,
+            idTwo: req.body.recId,
+            message_content: [req.body.text],
+            message_date: "?"
+
+
+        })
+        res.status(200).json({success: true})
+    }
+
+
+ 
 })
 
 app.get('/userById', (req, res) => {

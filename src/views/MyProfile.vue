@@ -173,7 +173,7 @@ const handleFileChange = (event) => {
                     <label for="">Product Description</label>
                         <input v-model="productDescription" class="input" type="text" >
                         <label for="">Quantity</label>
-                        <input v-model="productQuantity" class="input" type="number" >
+                        <input v-model="productQuantity" class="input" type="number" min="1" >
                     <!-- <label>
                         <i class="fa-solid fa-arrow-up-from-bracket"> </i>
                         Upload File
