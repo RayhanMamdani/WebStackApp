@@ -50,6 +50,6 @@ performSearch();
 
 <template>
     <Navbar></Navbar>
-<CardInfo :title="productInfo.product_name" :description="productInfo.description" :userId="productInfo.user" :name="userInfo.user.name"></CardInfo>
+<CardInfo :price="productInfo.price" :title="productInfo.product_name" :description="productInfo.description" :userId="productInfo.user" :name="userInfo.user.name"></CardInfo>
 
 </template> 

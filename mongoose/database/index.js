@@ -14,7 +14,8 @@ const Messages = require('./models/messages')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+app.use(bodyParser.json({limit: '10mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 let idNUM = 2;
 
   const uri = 'mongodb://' + PORT;
@@ -56,7 +57,8 @@ app.post('/products', passport.authenticate('jwt', {session: false}), async (req
             price: req.body.price,
             description: req.body.description,
             quantity: req.body.quantity,
-            user: req.user.id
+            user: req.user.id,
+            product_image: req.body.product_image,
         };
 
         console.log(newProduct);
