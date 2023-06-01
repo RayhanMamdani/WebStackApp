@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 var messagesSchema = new mongoose.Schema({
-    init_id: {
+    idOne: {
         //type: Schema.Types.ObjectId
     },
-    recieve_id: {
+    idTwo: {
         //type: Schema.Types.ObjectId
     },
     message_content: {
-        type: String
+        type: Array
     },
     message_date: {
         type: String
