@@ -13,7 +13,7 @@
   </nav>
   <div class="container">
   <div class="photo">
-    <img  style="margin-top: 50px;" :src="product_image">
+    <img  style="margin-top: 50px;" :src="image">
     
   </div>
   <div class="description">
@@ -249,8 +249,13 @@ export default {
       type: String,
       required: true
     },
-    product_image: {
+    image: {
       type: String,
+      required: true
+    },
+    
+    price:{
+      type: Number,
       required: true
     }
   },

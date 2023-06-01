@@ -45,6 +45,8 @@ const performSearch = () => {
 
 }
 performSearch();
+console.log(productInfo)
+console.log(productInfo.product_name)
 
 </script>
 
