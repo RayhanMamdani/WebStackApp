@@ -16,18 +16,23 @@ const productQuantity = ref('');
   const description = productDescription.value;
   const quantity = productQuantity.value;
 let data = JSON.stringify({
-  "product_name": name,
-  "price": price,
-  "description": description,
-  "quantity": quantity
+    "product_name": name,
+    "price": price,
+    "description": description,
+    "quantity": quantity
 });
+
+
+
 
 let config = {
   method: 'post',
   maxBodyLength: Infinity,
   url: 'http://localhost:3000/products',
   headers: { 
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+  
   },
   data : data
 };

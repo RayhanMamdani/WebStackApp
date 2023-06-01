@@ -2,6 +2,47 @@
 import Navbar from '../components/NavBar.vue';
 </script>
 
+<script>
+
+
+import axios from 'axios'
+
+export default {
+
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+
+    name: "login",
+    methods: {
+        async login(e) {
+            let success = true
+            e.preventDefault()
+            let url = "http://localhost:3000/api/users/login/"
+
+            let res = await axios.post(url, {
+              "email": this.email,
+              "password": this.password
+            }).catch((err) => {
+              //TODO: 
+              //Display Error
+              console.log(err.response.data.msg)
+              success=false
+            })
+            if (success){
+              localStorage.setItem('token', JSON.stringify(res.data.token))
+              this.$router.push({ path: '/' })
+            }
+        }
+    }
+}
+
+
+</script>
+
 <template>
   <!DOCTYPE html>
   <Navbar></Navbar>
@@ -22,7 +63,7 @@ import Navbar from '../components/NavBar.vue';
 		<h1>Find More</h1>
 		<p>Welcome to Vendoza, the ultimate destination for buying and selling in the digital age.
 </p>
-		<span>
+		<span> 
       <br>
 			<p>Login With Google</p>
 			<a href="#"><i class="fa-brands fa-google" style="color: #ffffff;"></i> Login with Google</a>
@@ -36,10 +77,10 @@ import Navbar from '../components/NavBar.vue';
     <div class="wrapper">
 		<p>Don't have an account? <a href="#">Create Your Account</a> it takes less than a minute</p>
 		<div class="inputs">
-			<input type="email" placeholder="email">
+			<input type="email" placeholder="email" v-model="email">
       
 			<br>
-			<input type="password" placeholder="password">
+			<input type="password" placeholder="password" v-model="password">
 		</div>
 			
 			<br><br>
@@ -54,7 +95,10 @@ import Navbar from '../components/NavBar.vue';
 		</div>
 			
 			<br>
-			<button>Login</button>
+      <form v-on:submit="login">
+        <button type="submit">Login</button>
+      </form>
+			
 	</div>
 	
 </div>

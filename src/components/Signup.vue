@@ -61,7 +61,7 @@
 		</div>
 			
 			<br>
-      <form v-on:submit="login">
+      <form v-on:submit="signup">
 			  <button type="submit">Sign Up</button>
       </form>
 	</div>
@@ -80,7 +80,6 @@
 <script>
 
  
-    import {ref} from 'vue'
     import axios from 'axios'
 
     export default {
@@ -96,15 +95,9 @@
             }
         },
 
-        name: "login",
+        name: "signup",
         methods: {
-            login(e) {
-              console.log(this.name)
-              console.log(this.email)
-              console.log(this.age)
-              console.log(this.address)
-              console.log(this.password)
-              console.log(this.confirmPassword)
+            signup(e) {
 
                 e.preventDefault()
                 let url = "http://localhost:3000/api/users/register/"
