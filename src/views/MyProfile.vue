@@ -15,7 +15,7 @@ onMounted(() => {
   })
     .then(response => {
       user.value = response.data; // Store the fetched user data in the user ref
-      cards.value = combineArrays(JSON.parse(JSON.stringify(user.value.user.products)));
+      cards.value = JSON.parse(JSON.stringify(user.value.user.products));
       console.log(cards.value);
     })
     .catch(error => {
@@ -70,7 +70,7 @@ let config = {
 
 axios.request(config)
 .then((response) => {
-  console.log(JSON.stringify(response.data));
+  // console.log(JSON.stringify(response.data));
 })
 .catch((error) => {
   console.log(error);
@@ -87,7 +87,7 @@ const handleFileChange = (event) => {
       reader.readAsDataURL(file);
       reader.onload = () => {
         productImage.value = reader.result; // Save the base64 image string
-        console.log(reader.result);
+        // console.log(reader.result);
         
       };
     }

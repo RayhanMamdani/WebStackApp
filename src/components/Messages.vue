@@ -87,38 +87,30 @@ export default {
       if (this.newMessage.trim() !== '') {
         const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         let msg = this.newMessage
-        axios.get("http://localhost:3000/currentUser", {
-          headers: {
-              'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
-            }
-          }).then(res =>{
-              let config = {
-                method: 'post',
-                maxBodyLength: Infinity,
-                url: 'http://localhost:3000/messages',
-                headers: { 
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
-                
-                },
-                data : {
-                  sendId: res.data.user._id,
-                  recId: window.location.href.split('/').reverse()[0],
-                  time: currentTime,
-                  text: msg
-                }
-              };
 
-              axios.request(config)
-              .then((response) => {
-                console.log(JSON.stringify(response.data));
-              })
-              .catch((error) => {
-                console.log(error);
-              });
+        let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: 'http://localhost:3000/messages',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+          
+          },
+          data : {
+            recId: window.location.href.split('/').reverse()[0],
+            time: currentTime,
+            text: msg
+          }
+        };
 
-    
-          })
+      axios.request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
 
         this.messages.push({

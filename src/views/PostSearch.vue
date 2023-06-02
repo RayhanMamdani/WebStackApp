@@ -240,9 +240,9 @@ input:checked + .slider:before {
         <div class="card-container">
           <Cards v-for="product in products" :key="product.id" :product="product"></Cards>
         </div>
-      </div>
-   </div>
-  </div>
+      </div> 
+      </div> 
+    </div>
 
    
 </template>

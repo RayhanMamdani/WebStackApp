@@ -29,11 +29,12 @@ var usersSchema = new mongoose.Schema({
     email: {
         type: String
     },
-    products: [
-        {
-            type: Array
-        }
-    ]
+    products: {
+        type: Array
+    },
+    messages: {
+        type: Array
+    }
 });
 
 const users = mongoose.model('users', usersSchema, "users");

@@ -14,11 +14,7 @@ import MessageContact from '../components/MessageContact.vue'
   <div class="columns">
     <div class="column is-one-third">
       <MessageContact></MessageContact>
-      <MessageContact></MessageContact>
-      <MessageContact></MessageContact>
-      <MessageContact></MessageContact>
-      <MessageContact></MessageContact>
-      <MessageContact></MessageContact>
+
     </div>
     <div class="column">
       <div class="containercenter"> 

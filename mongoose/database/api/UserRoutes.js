@@ -60,9 +60,8 @@ router.post('/register', async (req, res) => {
 
 })
 router.post('/login', async (req, res) => {
-
-    User.findOne({ email: req.body.email}).then(user => {
-        if(!user){
+    User.findOne({ email: req.body.email }).then(user => {
+        if (!user) {
             return res.status(400).json({
                 msg: "Username not found.",
                 success: false

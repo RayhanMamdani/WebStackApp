@@ -75,7 +75,7 @@ export default {
 		<div class="right">
 		<h5 style="margin-top:50px;">Login</h5>
     <div class="wrapper">
-		<p>Don't have an account? <a href="#">Create Your Account</a> it takes less than a minute</p>
+		<p>Don't have an account? <RouterLink :to="{ path: `/SignUp` }"> Create and account</RouterLink>, it takes less than a minute</p>
 		<div class="inputs">
 			<input type="email" placeholder="email" v-model="email">
       
