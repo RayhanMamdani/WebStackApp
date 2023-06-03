@@ -4,6 +4,8 @@ import CardInfo from '../components/CardInfo.vue'
 import Navbar from '../components/NavBar.vue'
 import axios from 'axios';
 import { ref } from 'vue';
+import {onMounted } from 'vue';
+
 let params = new URLSearchParams(window.location.search);
 let  searchParam = params.get('id');
 console.log(searchParam);
@@ -47,6 +49,8 @@ const performSearch = () => {
 performSearch();
 console.log(productInfo)
 console.log(productInfo.product_name)
+
+
 
 </script>
 

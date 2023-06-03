@@ -26,7 +26,6 @@
 
 
 
-
 <template>
 
     <div class="card">
@@ -234,6 +233,35 @@ button:hover {
 
 <script>
 
+import axios from 'axios';
+
+import { ref, onMounted } from 'vue';
+
+let user = ref(null); // Initialize with null or any default value
+let cards = ref([]);
+
+onMounted(() => {
+  axios.get("http://localhost:3000/currentUser", {
+    headers: {
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
+  })
+    .then(response => {
+      user.value = response.data; // Store the fetched user data in the user ref
+      cards.value = JSON.parse(JSON.stringify(user.value.user.products));
+      console.log(cards.value);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+function combineArrays(arrayOfArrays) {
+  const combinedArray = arrayOfArrays.reduce((result, currentArray) => {
+    return result.concat(currentArray);
+  }, []);
+  return combinedArray;
+}
 export default {
   name: 'App',
   components: {

@@ -1,6 +1,8 @@
 <script>
 import '@/assets/cards.css';
 import { RouterLink } from 'vue-router';
+import axios from 'axios';
+
 export default {
   name: 'Cards',
   props: {
@@ -19,9 +21,45 @@ export default {
       const id = this.product._id;
       // this.$router.push({ name: 'PostSearch', params: { searchTerm: search } });
       this.$router.push({ path: '/ProductInfo', query: { id } });
-    }
-  }
+    },
+
+    deleteProduct() {
+        console.log(this.product.description)
+        console.log(this.product.price)
+        console.log(this.product.product_name)
+        console.log(this.product.quantity)
+        console.log(this.product.user)
+  let data = JSON.stringify({
+    "description": this.product.description,
+    "price": this.product.price,
+    "product_name": this.product.product_name,
+    "quantity": this.product.quantity,
+    "user": this.product.user
+  });
+
+  let config = {
+    method: 'delete',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:3000/products',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: data
+  };
+
+  axios
+    .request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
+
+}
+  }
+
 
 
 
@@ -77,7 +115,7 @@ export default {
     </RouterLink>
     </div>
 </div>
-<button :style="{display: isDisplayed}" class="button is-danger unlist-button">Unlist</button>
+<button @click="deleteProduct" :style="{display: isDisplayed}" class="button is-danger unlist-button">Unlist</button>
 
 </body>
 

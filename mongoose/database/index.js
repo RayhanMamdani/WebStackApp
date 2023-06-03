@@ -71,8 +71,54 @@ app.post('/products', passport.authenticate('jwt', {session: false}), async (req
     }
 });
 
+app.delete('/products', async (req, res) => {
+    try {
+        const { description, price, product_image, product_name, quantity, user } = req.body;
+
+        // Create a filter object to find the products to delete
+        const filter = {
+            description: description,
+            price: price,
+            product_name: product_name,
+            quantity: quantity,
+            user: user
+        };
+
+        // Delete the products that match the filter from the product collection
+        const deletedProducts = await product.deleteMany(filter);
+
+        // Remove the deleted products from the user's products array in the User collection
+        await User.findOneAndUpdate(
+            { _id: user },
+            { $pull: { products: filter } }
+        );
+
+        res.json({ success: true, deletedCount: deletedProducts.deletedCount });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 
+  
+app.get('/users/:id', async (req, res) => {
+    const userId = req.params.id;
+  
+    try {
+      const user = await User.findById(userId);
+      if (user) {
+        res.json(user);
+        console.log(user);
+      } else {
+        res.status(404).send('User not found');
+      }
+    } catch (err) {
+      console.error('Error finding user:', err);
+      res.status(500).send('An error occurred');
+    }
+  });
+  
+  
 app.get('/messages', passport.authenticate('jwt', {session: false}), (req,res) => {
     Messages.findOne({init_id: req.user.id, recieve_id: req.body.sendId}).then(msg => {
         res.status(200).json({ chain: msg });

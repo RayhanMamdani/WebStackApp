@@ -71,7 +71,7 @@ const router = createRouter({
       component: EditProducts
     },
     {
-      path: '/ManageProducts',
+      path: '/ManageProducts/:id',
       name: 'ManageProducts',
       component: ManageProducts
     },

@@ -24,11 +24,9 @@
     <button>Wishlist</button>
     <div class="columns">
       <div class="column">
-        <h4>
-          <RouterLink :to="{ path: `Profile/${userId}` }">
-            {{ name }} 
-          </RouterLink>
-        </h4>
+        <h4 @click="redirectToProfile">
+        {{ name }}
+      </h4>
 </div>
 <div class="column seller">
     
@@ -226,7 +224,27 @@ button:hover {
 </style>
 
 <script>
+import { ref, onMounted } from 'vue';
 
+let user = ref(null); // Initialize with null or any default value
+
+onMounted(() => {
+  axios.get("http://localhost:3000/currentUser", {
+    headers: {
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
+  })
+    .then(response => {
+      user.value = response.data; // Store the fetched user data in the user ref
+     user = JSON.parse(JSON.stringify(user));
+     user = user._value.user.isAdmin
+     console.log(user)
+
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 export default {
   name: 'App',
   components: {
@@ -266,9 +284,17 @@ export default {
   },
   methods: {
     showComponent() {
-      this.show = !this.show    }
-  },
-  
-}
+      this.show = !this.show    },
+
+   redirectToProfile() {
+      const userId = this.userId; // Extract userId from the component's data or props
+      if (user){
+        this.$router.push({ path: `ManageProducts/${userId}` });
+  }else{
+      this.$router.push({ path: `Profile/${userId}` });
+  }
+    }
+      }
+  }
 </script>
 

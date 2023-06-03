@@ -33,6 +33,7 @@ const performSearch = () => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       products.value = response.data;
+      console.log(products);
     })
     .catch((error) => {
       console.log(error);
