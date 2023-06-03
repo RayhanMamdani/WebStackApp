@@ -13,7 +13,12 @@ export default {
     product: {
         type: Object,
         required: true
+    },
+    noBtn: {
+      type: Boolean,
+      default: true
     }
+
   },
   methods: {
     showCardInfo(event) {
@@ -107,7 +112,7 @@ export default {
         
 <RouterLink to="/ProductInfo">
         <div class="card-footer">
-            <button @click="showCardInfo">
+            <button v-if="noBtn==true" @click="showCardInfo">
                 
                 Buy now
             </button>

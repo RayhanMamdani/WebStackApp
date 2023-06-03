@@ -11,8 +11,10 @@ const showDiv = ref(false);
 const toggleDiv = () => (showDiv.value = !showDiv.value);
 // Remove the existing code for reading searchParam and config
 let searchTerm = ref('');
-let params = new URLSearchParams(window.location.search);
-let  searchParam = params.get('search');
+let params = ref('');
+let searchParam = ref('')
+ params = new URLSearchParams(window.location.search);
+ searchParam = params.get('search');
 searchTerm = searchParam;
 console.log(searchTerm)
 const products = ref([]);

@@ -147,40 +147,7 @@ const handleFileChange = (event) => {
  <div class="container">
  <h1>Edit Profile</h1>
  <div class="columns">
-    <div class="column is-one-half">
-        <div class="card">
-            <div class="card-content">
-                <p class="editHeading">Profile Picture</p>
-                <div class="columns">
-                    <div class="column is-one-quarter">
-                        <img class="editPic" src="../images/profile.png" alt="..."> 
-                    </div>
-                    <div class="column">
-                        <input type="file" id="uploadProfile" accept="image/png, image/jpeg" hidden/>
-                        <label class="uploadLabel" for="uploadProfile">Choose file</label>
-                        <p class="has-text-danger">Remove</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <br>
-        <div class="card">
-            <div class="card-content">
-                <p class="editHeading">User Info</p>
-                <label for="">First Name</label>
-                <input type="text" class="input" placeholder="John">
-                <label for="">Last Name</label>
-                <input type="text" class="input" placeholder="Smith">
-                <label for="">City</label>
-                <input type="text" class="input" placeholder="Toronto, ON"> <!--Location Selector-->
-                <br>
-                <br>
-                <button class="button is-info">Save Changes</button>
-            </div>
-        </div>
-
-    </div>
+  
     <div class="column addItem">
         <div class="card">
             <div class="card-content">
@@ -220,7 +187,7 @@ const handleFileChange = (event) => {
  <hr>
  <div class="column">
         <div class="card-container">
-          <Cards v-for="product in cards" :key="product.id" :product="product"></Cards>
+          <Cards v-for="product in cards" :noBtn="false" :key="product.id" :product="product"></Cards>
         </div>
       </div>
  <!-- <div class="card-container">

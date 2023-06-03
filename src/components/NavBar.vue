@@ -17,32 +17,33 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <RouterLink to="/">
-          <a class="navbar-item">
-            Auto
-          </a>
-        </RouterLink>
+  <RouterLink to="/PostSearch?search=auto">
+    <a @click="navigate" class="navbar-item">
+      Auto
+    </a>
+  </RouterLink>
 
-        <RouterLink to="/">
-          <a class="navbar-item">
+
+        <RouterLink to="/PostSearch?search=tech">
+          <a @click="navigate" class="navbar-item">
             Tech
           </a>
         </RouterLink>
 
-        <RouterLink to="/">
-          <a class="navbar-item">
+        <RouterLink to="/PostSearch?search=music">
+          <a  @click="navigate" class="navbar-item">
             Music
           </a>
         </RouterLink>
 
-        <RouterLink to="/">
-          <a class="navbar-item">
+        <RouterLink to="/PostSearch?search=sports">
+          <a  @click="navigate" class="navbar-item">
             Sports
           </a>
         </RouterLink>
 
-        <RouterLink to="/">
-          <a class="navbar-item">
+        <RouterLink to="/PostSearch?search=vintage">
+          <a @click="navigate" class="navbar-item">
             Vintage
           </a>
         </RouterLink>
@@ -51,11 +52,11 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button">
+            <!-- <a class="button">
               <RouterLink to="/Cart">
                 <i class="fa-solid fa-cart-shopping"></i>
               </RouterLink>
-            </a>
+            </a> -->
             <template v-if="localStorageToken === null">
               <a class="button is-light">
                 <RouterLink to="/SignUp">
@@ -121,6 +122,12 @@ export default {
 data() {
     return {
       localStorageToken: localStorage.getItem("token")
+    }
+  },
+
+  methods: {
+    navigate() {
+      this.$router.push("/");
     }
   }
 } 

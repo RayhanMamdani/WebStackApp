@@ -30,9 +30,9 @@
 </div>
 <div class="column seller">
     
-    <figure class="image is-64x64">
+    <!-- <figure class="image is-64x64">
   <img class="is-rounded" src="../images/pfp.png">
-</figure>
+</figure> -->
 </div>
 </div>
 
@@ -275,6 +275,10 @@ export default {
     price:{
       type: Number,
       required: true
+    },
+    redirect:{
+      type: Boolean,
+      required: true
     }
   },
   data() {
@@ -288,7 +292,8 @@ export default {
 
    redirectToProfile() {
       const userId = this.userId; // Extract userId from the component's data or props
-      if (user){
+      console.log(userId)
+      if (this.redirect){
         this.$router.push({ path: `ManageProducts/${userId}` });
   }else{
       this.$router.push({ path: `Profile/${userId}` });

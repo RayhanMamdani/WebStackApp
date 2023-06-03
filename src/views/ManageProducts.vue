@@ -7,6 +7,7 @@
 import { ref, onMounted } from 'vue';
 
 let data = '';
+
 let products = ref([]);
 
 const userId = window.location.href.split('/').reverse()[0]

@@ -11,6 +11,26 @@ let  searchParam = params.get('id');
 console.log(searchParam);
 const productInfo = ref([]);
 const userInfo = ref([]);
+
+let user = ref(null); // Initialize with null or any default value
+
+onMounted(() => {
+  axios.get("http://localhost:3000/currentUser", {
+    headers: {
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
+  })
+    .then(response => {
+      user.value = response.data; // Store the fetched user data in the user ref
+     user = JSON.parse(JSON.stringify(user));
+     user = user._value.user.isAdmin
+     console.log(user)
+
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 const performSearch = () => {
   let config = {
     method: 'get',
@@ -56,6 +76,6 @@ console.log(productInfo.product_name)
 
 <template>
     <Navbar></Navbar>
-<CardInfo :image="productInfo.product_image" :price="productInfo.price" :title="productInfo.product_name" :description="productInfo.description" :userId="productInfo.user" :name="userInfo.user.name"></CardInfo>
+<CardInfo :redirect="user" :image="productInfo.product_image" :price="productInfo.price" :title="productInfo.product_name" :description="productInfo.description" :userId="productInfo.user" :name="userInfo.user.name"></CardInfo>
 
 </template> 
