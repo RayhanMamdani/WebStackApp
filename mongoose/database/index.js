@@ -60,7 +60,7 @@ app.post('/products', passport.authenticate('jwt', {session: false}), async (req
             user: req.user.id,
             product_image: req.body.product_image,
         };
-        console.log(req.user.products)
+        // console.log(req.user.products)
        req.user.products.push(newProduct);
          req.user.save();
         // console.log(newProduct);
@@ -108,7 +108,7 @@ app.get('/users/:id', async (req, res) => {
       const user = await User.findById(userId);
       if (user) {
         res.json(user);
-        console.log(user);
+        // console.log(user);
       } else {
         res.status(404).send('User not found');
       }
@@ -129,17 +129,19 @@ app.get('/messages', passport.authenticate('jwt', {session: false}), (req,res) =
 
 app.post('/messages', passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
+        
+        let newChain = [{
+            time: req.body.time,
+            content: req.body.text,
+            isSender: true
+        }]
         let recip = await User.find({ _id: req.body.recId });
-        let origChain = req.user.messages.filter(convo => convo.recipient._id == req.body.recId);
+        let origChain = req.user.messages.filter(convo => convo.recipient == req.body.recId);
         // console.log(origChain);
         if (origChain.length == 0) {
             req.user.messages.push({
-                recipient: recip[0],
-                chain: [{
-                    time: req.body.time,
-                    content: req.body.text,
-                    isSender: true
-                }]
+                recipient: recip[0]._id,
+                chain: newChain
             })
         } else {
             // origChain[0].chain.push({
@@ -152,18 +154,37 @@ app.post('/messages', passport.authenticate('jwt', { session: false }), async (r
             //     content: req.body.text,
             //     isSender: true
             // })
-            let messages = req.user.messages[req.user.messages.findIndex(convo => convo.recipient._id == req.body.recId)]
-            messages.chain.push({
-                time: req.body.time,
-                content: req.body.text,
-                isSender: true
-            })
+            let messages = req.user.messages[req.user.messages.findIndex(convo => convo.recipient == req.body.recId)]
+            messages.chain.push(newChain[0])
+            req.user.messages[req.user.messages.findIndex(convo => convo.recipient == req.body.recId)] = messages
 
-            req.user.messages[req.user.messages.findIndex(convo => convo.recipient._id == req.body.recId)] = messages
+            
+            // recip.messages[req.user.messages.findIndex(convo => convo.recipient._id == recip._id)] = messages
+            // console.log(recip.messages[recip.messages.findIndex(convo => convo.recipient._id == req.user._id)])
             // console.log(req.user.messages[0])
             
         }
+        //still have to fix isSender
+        let index = recip[0].messages.findIndex(convo => convo.recipient.equals(req.user._id))
+
+        if (index == -1){
+            
+            recip[0].messages.push(
+                {
+                    recipient: req.user._id,
+                    chain: newChain
+                }
+            )
+
+        } else{
+            let arr = recip[0].messages[index]
+            arr.chain.push(newChain[0])
+            recip[0].messages[index] = arr
+            
+        }
         req.user.save()
+        
+        recip[0].save()
 
         // res.send(origChain);
         res.status(200).json({success: true}) 
