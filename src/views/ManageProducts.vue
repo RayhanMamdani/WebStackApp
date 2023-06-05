@@ -3,7 +3,7 @@
     import NavBar from '../components/NavBar.vue'
   import Cards from '../components/Cards.vue';
     import axios from 'axios';
-
+    const userInfo = ref('');
 import { ref, onMounted } from 'vue';
 
 let data = '';
@@ -30,12 +30,35 @@ onMounted(async () => {
   }
 });
 
+userInfo.value = axios.get("http://localhost:3000/userById", {
+      params: {
+        id: userId
+      }
+    }).then(response => {
+      userInfo.value = response.data;
+      console.log(userInfo)
 
+  })
 
 </script>
 
 <template>
     <NavBar></NavBar>
+        <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <img src="../images/profile.png" alt="..."> 
+            </div>
+            <div class="column userInfo">
+                <h1>{{ userInfo.user.name }}</h1>
+
+                <h2><i class="fa-solid fa-location-dot"> </i> &nbsp {{ userInfo.user.address }}</h2>
+                <RouterLink :to="{ path: `/Chatbox/${userInfo.user._id}` }">
+                    <button class="button"><i class="fa-solid fa-message"></i> &nbsp Send message</button>
+                </RouterLink>
+            </div>
+        </div>
+    </div>
     <h1 style="margin-left: 30px;">My Products:</h1>
     <hr>
     <div class="card-container">

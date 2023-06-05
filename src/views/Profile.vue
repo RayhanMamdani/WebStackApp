@@ -68,25 +68,22 @@ onMounted(async () => {
 </style>
 
 <template>
- <NavBar></NavBar>
- <div class="container">
- <div class="columns">
-    <div class="column is-one-third">
-        <img src="../images/profile.png" alt="..."> 
+    <NavBar></NavBar>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <img src="../images/profile.png" alt="..."> 
+            </div>
+            <div class="column userInfo">
+                <h1>{{ userInfo.user.name }}</h1>
+
+                <h2><i class="fa-solid fa-location-dot"> </i> &nbsp {{ userInfo.user.address }}</h2>
+                <RouterLink :to="{ path: `/Chatbox/${userInfo.user._id}` }">
+                    <button class="button"><i class="fa-solid fa-message"></i> &nbsp Send message</button>
+                </RouterLink>
+            </div>
+        </div>
     </div>
-    <div class="column userInfo">
-        <h1>{{ userInfo.user.name }}</h1>
-
-        <h2><i class="fa-solid fa-location-dot"> </i> &nbsp {{ userInfo.user.address }}</h2>
-      
-
-        <RouterLink :to="{ path: `/Chatbox/${userInfo.user._id}` }">
-            <button class="button"><i class="fa-solid fa-message"></i> &nbsp Send message</button>
-
-        </RouterLink>
-    </div>
- </div>
-</div>
  <!-- <div class="columns">
     <div class="column is-one-third">
     </div>
