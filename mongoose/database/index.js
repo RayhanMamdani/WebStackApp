@@ -120,27 +120,33 @@ app.get('/users/:id', async (req, res) => {
   
   
 app.get('/messages', passport.authenticate('jwt', {session: false}), (req,res) => {
-    Messages.findOne({init_id: req.user.id, recieve_id: req.body.sendId}).then(msg => {
-        res.status(200).json({ chain: msg });
-
-    })
+    let chain = req.user.messages.filter(convo => convo.recipient == req.headers.recid);
+    
+    
+    if (chain){
+        res.json(chain[0])
+    }else{
+        res.json({})
+    }
 })
 
 
 app.post('/messages', passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
-        
+        let recip = await User.find({ _id: req.body.recId });
+
         let newChain = [{
+            name: req.user.name,
             time: req.body.time,
             content: req.body.text,
             isSender: true
         }]
         let newChainNotSender = [{
+            name: req.user.name,
             time: req.body.time,
             content: req.body.text,
             isSender: false
         }]
-        let recip = await User.find({ _id: req.body.recId });
         let origChain = req.user.messages.filter(convo => convo.recipient == req.body.recId);
         // console.log(origChain);
         if (origChain.length == 0) {
