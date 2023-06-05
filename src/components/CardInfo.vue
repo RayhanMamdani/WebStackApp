@@ -24,9 +24,10 @@
     <button>Wishlist</button>
     <div class="columns">
       <div class="column">
-        <h4 @click="redirectToProfile">
-        {{ name }}
-      </h4>
+          <h4 @click="redirectToProfile">
+            {{ name }}
+          </h4>
+
 </div>
 <div class="column seller">
     
@@ -147,6 +148,12 @@ body {
   font-weight: 500;
   font-size: 12px;
 }
+
+.card .description h4:hover {
+  color: #aedaa6;
+  cursor: pointer;
+}
+
 
 .card .description p {
   font-size: 12px;
