@@ -147,7 +147,25 @@ const handleFileChange = (event) => {
  <div class="container">
  <h1>Edit Profile</h1>
  <div class="columns">
-  
+  <div class="column is-one-half">
+       
+        <br>
+        <div class="card">
+            <div class="card-content">
+                <p class="editHeading">User Info</p>
+                <label for="">First Name</label>
+                <input type="text" class="input" placeholder="John">
+                <label for="">Last Name</label>
+                <input type="text" class="input" placeholder="Smith">
+                <label for="">City</label>
+                <input type="text" class="input" placeholder="Toronto, ON"> <!--Location Selector-->
+                <br>
+                <br>
+                <button class="button is-info">Save Changes</button>
+            </div>
+        </div>
+
+    </div>
     <div class="column addItem">
         <div class="card">
             <div class="card-content">
