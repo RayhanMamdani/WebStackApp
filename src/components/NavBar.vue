@@ -80,7 +80,7 @@
               </a>
               <a @click="signOut" class="button is-light">
                   <a>
-                    Logout
+                    Log Out
                   </a>
               </a>
             </template>
