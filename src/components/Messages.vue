@@ -1,6 +1,8 @@
 <template>
   <section class="msger">
-  <button class="button"><i class="fa-solid fa-rotate-right"></i></button>
+    <form @submit.prevent="reload">
+    <button class="button" type="submit" style="width: -webkit-fill-available;"><i class="fa-solid fa-rotate-right"></i></button>
+  </form>
 
     <main class="msger-chat">
       <div v-for="(msg, index) in messages" :key="index" :class="msg.type + '-msg'">
@@ -80,9 +82,46 @@ export default {
 
 
       newMessage: '',
+
     };
   },
   methods: {
+    reload() {
+      let config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'http://localhost:3000/messages',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+            "recId": window.location.href.split('/').reverse()[0]
+          
+          }
+        };
+        
+    axios.request(config)
+      .then((response) => {
+
+
+
+        console.log(JSON.stringify(response.data));
+        let chain = response.data.chain;
+        this.messages = []
+        for (let msg of chain){
+
+          this.messages.push({
+            type: msg.isSender ? "right" : "lest",
+            name: msg.name,
+            time: msg.time,
+            text: msg.content
+          })
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    },
     sendMessage() {
       if (this.newMessage.trim() !== '') {
         const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
