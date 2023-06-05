@@ -21,8 +21,7 @@
 </p>
 		<span>
       <br>
-			<p>Login With Google</p>
-			<a href="#"><i class="fa-brands fa-google" style="color: #ffffff;"></i> Login with Google</a>
+
 		</span>
 		</div>
 	</div>
@@ -124,7 +123,6 @@
 
 <style scoped>
   body {
-  background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

@@ -1,6 +1,6 @@
 <template>
   <section class="msger">
-  
+  <button class="button"><i class="fa-solid fa-rotate-right"></i></button>
 
     <main class="msger-chat">
       <div v-for="(msg, index) in messages" :key="index" :class="msg.type + '-msg'">

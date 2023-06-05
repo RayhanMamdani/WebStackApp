@@ -135,6 +135,11 @@ app.post('/messages', passport.authenticate('jwt', { session: false }), async (r
             content: req.body.text,
             isSender: true
         }]
+        let newChainNotSender = [{
+            time: req.body.time,
+            content: req.body.text,
+            isSender: false
+        }]
         let recip = await User.find({ _id: req.body.recId });
         let origChain = req.user.messages.filter(convo => convo.recipient == req.body.recId);
         // console.log(origChain);
@@ -172,13 +177,13 @@ app.post('/messages', passport.authenticate('jwt', { session: false }), async (r
             recip[0].messages.push(
                 {
                     recipient: req.user._id,
-                    chain: newChain
+                    chain: newChainNotSender
                 }
             )
 
         } else{
             let arr = recip[0].messages[index]
-            arr.chain.push(newChain[0])
+            arr.chain.push(newChainNotSender[0])
             recip[0].messages[index] = arr
             
         }

@@ -78,6 +78,11 @@
                   </a>
                                 </RouterLink>
               </a>
+              <a @click="signOut" class="button is-light">
+                  <a>
+                    Logout
+                  </a>
+              </a>
             </template>
           </div>
         </div>
@@ -128,6 +133,11 @@ data() {
   methods: {
     navigate() {
       this.$router.push("/");
+    },
+
+    signOut() {
+      localStorage.removeItem("token");
+      window.location.reload();
     }
   }
 } 
