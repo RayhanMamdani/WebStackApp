@@ -4,8 +4,11 @@ import Cards from '../components/Cards.vue';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
-let user = ref(null); // Initialize with null or any default value
+let user = ref(null);
 let cards = ref([]);
+
+const nameUpdate = ref('');
+const addressUpdate = ref('');
 
 onMounted(() => {
   axios.get("http://localhost:3000/currentUser", {
@@ -16,10 +19,10 @@ onMounted(() => {
     .then(response => {
       user.value = response.data; // Store the fetched user data in the user ref
       cards.value = JSON.parse(JSON.stringify(user.value.user.products));
-      console.log(cards.value);
+      // console.log(cards.value);
     })
     .catch(error => {
-      console.log(error);
+      // console.log(error);
     });
 });
 
@@ -66,14 +69,12 @@ let config = {
   data : data
 };
 
-
-
 axios.request(config)
 .then((response) => {
   // console.log(JSON.stringify(response.data));
 })
 .catch((error) => {
-  console.log(error);
+  // console.log(error);
 });
 
   // Perform the necessary actions with the values (e.g., send a POST request)
@@ -92,6 +93,45 @@ const handleFileChange = (event) => {
       };
     }
   };
+
+const updateUser = async (event) => {
+  let data = JSON.stringify({
+    "name": nameUpdate.value,
+    "address": addressUpdate.value
+  });
+
+let currentUser;
+  await axios.get("http://localhost:3000/currentUser", {
+    headers: {
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
+  })
+    .then(response => {
+      currentUser = response.data; 
+     console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+console.log(currentUser.user._id);
+  let config = {
+    method: 'put',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:3000/users/' + currentUser.user._id,
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    data : data
+  };
+
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
 </script>
 
 
@@ -154,14 +194,12 @@ const handleFileChange = (event) => {
             <div class="card-content">
                 <p class="editHeading">User Info</p>
                 <label for="">First Name</label>
-                <input type="text" class="input" placeholder="John">
-                <label for="">Last Name</label>
-                <input type="text" class="input" placeholder="Smith">
-                <label for="">City</label>
-                <input type="text" class="input" placeholder="Toronto, ON"> <!--Location Selector-->
+                <input v-model="nameUpdate" type="text" class="input" placeholder="John">
+                <label id="addressUpdate" for="">City</label>
+                <input v-model="addressUpdate" type="text" class="input" placeholder="Toronto, ON"> <!--Location Selector-->
                 <br>
                 <br>
-                <button class="button is-info">Save Changes</button>
+                <button class="button is-info" @click="updateUser">Save Changes</button>
             </div>
         </div>
 

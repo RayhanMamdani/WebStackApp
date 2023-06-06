@@ -137,7 +137,7 @@ data() {
 
     signOut() {
       localStorage.removeItem("token");
-      window.location.reload();
+      window.location.reload().then(this.$router.push({ path: '/Home'}));
     }
   }
 } 
