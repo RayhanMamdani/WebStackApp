@@ -4,9 +4,10 @@ import Cards from '../components/Cards.vue';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
-let user = ref(null);
+let user = ref();
 let cards = ref([]);
-
+let userName = ref('');
+let addressRef = ref('');
 const nameUpdate = ref('');
 const addressUpdate = ref('');
 
@@ -20,6 +21,8 @@ onMounted(() => {
       user.value = response.data; // Store the fetched user data in the user ref
       cards.value = JSON.parse(JSON.stringify(user.value.user.products));
       // console.log(cards.value);
+    userName = user.value.user.name 
+    addressRef = user.value.user.address
     })
     .catch(error => {
       // console.log(error);
@@ -184,6 +187,17 @@ console.log(currentUser.user._id);
 
 <template>
  <NavBar></NavBar>
+ <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <img src="../images/profile.png" alt="..."> 
+            </div>
+            <div class="column userInfo">
+                <h1>{{ userName }}</h1>  
+                <p>{{ addressRef }}</p>              
+            </div>
+        </div>
+    </div>
  <div class="container">
  <h1>Edit Profile</h1>
  <div class="columns">
