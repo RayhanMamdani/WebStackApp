@@ -110,7 +110,7 @@ export default {
         for (let msg of chain){
 
           this.messages.push({
-            type: msg.isSender ? "right" : "lest",
+            type: msg.isSender ? "right" : "left",
             name: msg.name,
             time: msg.time,
             text: msg.content
