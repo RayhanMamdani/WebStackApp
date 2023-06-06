@@ -20,8 +20,7 @@
     <h2>{{ title }}</h2>
     <h1>${{ price }}</h1>
     <p>{{ description }}</p>
-    <button>Add to Cart</button>
-    <button>Wishlist</button>
+   
     <div class="columns">
       <div class="column">
           <h4 @click="redirectToProfile">
