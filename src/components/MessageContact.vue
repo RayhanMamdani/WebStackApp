@@ -18,21 +18,22 @@ onMounted(() => {
   // console.log(user.value.messages.)
       for (let i = 0; i < user.value.user.messages.length; i++){
         console.log(user.value.user.messages[i].recipient);
-        userid.value.push();
         let res = await axios.get(`http://localhost:3000/users/${user.value.user.messages[i].recipient}`)
-        console.log(res.data )
+        // console.log(res.data)
         userid.value.push(res.data.name);
-        }
+        console.log(res.data.name);
+      }
 
     })
     .catch(error => {
-      console.log(error);
     });
 });
+
 </script>
 
 <template>
-    <ContactCards v-for="name in userid" :username="name"></ContactCards>
+    <ContactCards v-if="userid.length > 0" v-for="name in userid" :username="name"></ContactCards>
+    <h1 v-else>Send your first message!</h1>
 </template>
 
 <style>
@@ -42,6 +43,11 @@ onMounted(() => {
     }
     .message-card{
         margin: 0;
+    }
+
+    h1 {
+      margin-left: 5%;
+      font-size: 30px;
     }
 
 </style>
