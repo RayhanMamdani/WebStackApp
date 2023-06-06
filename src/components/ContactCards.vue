@@ -32,7 +32,7 @@ export default {
         </div>
         </div>
             <p class="username">{{username.name}}</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, accusantium.</p>
+            <p>{{ username.address }}</p>
         </div>
     </div>
   </RouterLink>

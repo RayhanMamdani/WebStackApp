@@ -160,85 +160,10 @@ input:checked + .slider:before {
 <template>
     <NavBar></NavBar>
     <SearchBar  @search="handleSearch" :font-color="'black'" style="margin-top: -20px;"></SearchBar>
-    <button @click="toggleDiv" class="button button-filter"><i class="fa-solid fa-bars"></i></button>
     <div>
         
         <div class="columns">
-        <div v-if="showDiv" class="column is-one-quarter filter">
-          <h1 class="filterTitle">Filters</h1>
-          <hr>
-          <!-- Rounded switch -->
-          <div class="filterSection">             
-            <p class="alignleft">In person pickup</p>
-            <label class="switch alignright">
-            <input type="checkbox">
-            <span class="slider round"></span>
-            </label>
-          </div>
-          <div class="filterSection">
-            <div class="field">   
-              <label for="" class="alignleft">Reviews</label>
-              <span class="select alignright">
-              <select>
-                <option>★★★★★</option>
-                <option>★★★★</option>
-                <option>★★★</option>
-                <option>★★</option>
-                <option>★</option>
-              </select>
-              </span>
-           </div> 
-         </div>
-         <div class="filterSection">
-            <div class="field">   
-              <label for="" class="alignleft">Condition</label>
-              <span class="select alignright">
-              <select>
-                <option>New</option>
-                <option>Gently Used</option>
-                <option>Used</option>
-              </select>
-              </span>
-           </div> 
-         </div>
-
-         <div class="filterSection">
-            <div class="field">   
-              <label for="" class="alignleft">Date Posted</label>
-              <span class="select alignright">
-              <select>
-                <option>Newest First</option>
-                <option>Oldest First</option>
-              </select>
-              </span>
-           </div> 
-         </div>
-         <div class="filterSection">
-          <label for="" class="alignleft">Price</label>
-          <div class="field has-addons alignright ">
-            <div class="control alignright">
-              <input class="input" type="text" placeholder="Min" style="width:100px">
-            </div>
-            <div class="control alignright">
-                <input class="input" type="text" placeholder="Max" style="width:100px">
-            </div>
-          </div>
-        </div>
-        <div class="filterSection">
-            <div class="field">   
-              <span class="select alignright">
-              <select>
-                <option>Recommended</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-              </select>
-              </span>
-           </div> 
-         </div>
-        <div class="filterSection">
-          <input type="submit" class="button alignright is-info"> 
-        </div>
-      </div>
+  
       <div class="column">
         <div class="card-container">
           <Cards v-for="product in products" :key="product.id" :product="product"></Cards>
