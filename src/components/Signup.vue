@@ -12,6 +12,7 @@
 
 </head>
 <body>
+  <div class="error-message" ref="errorMessage"></div>
 <!-- partial:index.partial.html -->
 <div class="box-form">
 	<div class="left">
@@ -97,7 +98,14 @@
         name: "signup",
         methods: {
             signup(e) {
-
+              if (this.name == '' || this.email == '' || this.age == '' || this.address == '' || this.password == '' || this.confirmPassword == '') {
+                alert("Please fill out all fields")
+                return;
+              }
+              if (this.password != this.confirmPassword) {
+                alert("Passwords do not match")
+                return;
+              }
                 e.preventDefault()
                 let url = "http://localhost:3000/api/users/register/"
                 console.log(url)
@@ -115,7 +123,8 @@
                     maxRedirects: 1
                 })
 
-            }
+            },
+            
         }
     }
 
