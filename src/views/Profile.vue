@@ -22,7 +22,6 @@ onMounted(async () => {
   try {
     const response = await axios.request(config);
     products.value = response.data.products;
-    console.log(products.value);
   } catch (error) {
     console.log(error);
   }
@@ -37,8 +36,6 @@ onMounted(async () => {
           }
         }).then(response => {
           userInfo.value = response.data;
-          console.log(userInfo)
-
       })
       
       
