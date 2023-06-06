@@ -71,6 +71,14 @@
             </template>
             <template v-else>
               <a class="button is-light">
+                <RouterLink to="/Chatbox">
+                  <i class="fa-regular fa-comments"></i>                  <a>
+                      Messages                  
+                        </a>
+                                </RouterLink>
+              </a>
+              <a class="button is-light">
+          
                 <RouterLink to="/MyProfile">
                   <i class="fa-solid fa-user"></i>
                   <a>

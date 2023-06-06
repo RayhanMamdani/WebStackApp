@@ -55,10 +55,12 @@ const router = createRouter({
     },
 
     {
-      path: '/Chatbox/:id',
+      path: '/Chatbox/:id?',
       name: 'Chatbox',
       component: Chatbox
     },
+
+   
 
     {
       path: '/MyProfile',

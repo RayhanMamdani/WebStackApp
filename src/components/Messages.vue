@@ -1,7 +1,7 @@
 <template>
   <section class="msger">
     <form @submit.prevent="reload">
-    <button class="button" type="submit" style="width: -webkit-fill-available;"><i class="fa-solid fa-rotate-right"></i></button>
+    <button class="button" type="submit" style="width: -webkit-fill-available;">Click here to update messages<i class="fa-solid fa-rotate-right"></i></button>
   </form>
 
     <main class="msger-chat">
@@ -72,10 +72,10 @@ export default {
       messages: [
         {
           type: 'left',
-          avatar: 'https://image.flaticon.com/icons/svg/327/327779.svg',
-          name: 'BOT',
-          time: '12:45',
-          text: 'Hi, welcome to SimpleChat! Go ahead and send me a message. 😄',
+          avatar: '',
+          name: '',
+          time: '',
+          text: '',
         },
       
       ],
