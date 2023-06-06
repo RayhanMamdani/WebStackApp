@@ -40,6 +40,8 @@
 <script setup>
 import { ref, toRaw } from 'vue';
 import axios from 'axios';
+import { onMounted } from 'vue'
+
 
 // const userInfo = ref([]);
 // // const reciever = window.location.href.split('/').reverse()[0]

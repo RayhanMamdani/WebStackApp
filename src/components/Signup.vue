@@ -1,4 +1,3 @@
-
 <template>
   <!DOCTYPE html>
   <Navbar></Navbar>
