@@ -23,9 +23,14 @@ export default {
   methods: {
     showCardInfo(event) {
       event.preventDefault(); // Prevent form submission
-      const id = this.product._id;
+      if (localStorage.getItem('token') == null) {
+        this.$router.push({ name: 'Login' });
+      } else {
+        const id = this.product._id;
       // this.$router.push({ name: 'PostSearch', params: { searchTerm: search } });
       this.$router.push({ path: '/ProductInfo', query: { id } });
+      }
+    
     },
 
     deleteProduct() {
