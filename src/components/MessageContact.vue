@@ -12,15 +12,17 @@ onMounted(() => {
       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
     }
   })
-    .then(response => {
+    .then(async response => {
       user.value = response.data; // Store the fetched user data in the user ref
-      console.log(user.value.user.messages)
-      console.log(user.value.user.messages.length)
+      console.log(user)
+  // console.log(user.value.messages.)
       for (let i = 0; i < user.value.user.messages.length; i++){
-        console.log(user.value.user.messages[i].recipient.name);
-        names.value.push(user.value.user.messages[i].recipient.name);
-        userid.value.push(user.value.user.messages[i].recipient);
-}
+        console.log(user.value.user.messages[i].recipient);
+        userid.value.push();
+        let res = await axios.get(`http://localhost:3000/users/${user.value.user.messages[i].recipient}`)
+        console.log(res.data )
+        userid.value.push(res.data.name);
+        }
 
     })
     .catch(error => {
@@ -30,7 +32,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <ContactCards v-for="name of names" :username="name"></ContactCards>
+    <ContactCards v-for="name in userid" :username="name"></ContactCards>
 </template>
 
 <style>

@@ -17,8 +17,14 @@ export default {
 
 
 <template>
-    <div v-on="" class="card message-card" style="width: fit-content !important; height: fit-content !important;">
+
+    <div  class="card message-card" style="width: fit-content !important; height: fit-content !important;">
         <div class="card-content">
+          <div class="columns">
+        <div class="column is-one-fifth">
+            <img src="../images/profile.png" alt="..." style="width:50px;"> 
+        </div>
+        </div>
             <p class="username">{{username}}</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, accusantium.</p>
         </div>
