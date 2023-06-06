@@ -266,19 +266,38 @@ app.get('/products/productInfo', async (req, res) => {
     try {
         const productId = req.query.searchTerm;
         // console.log(productId);
-        const productfound = await product.findById(productId); // Assuming your model is named 'Product'
+        const productfound = await product.findById(productId); 
         
         if (!productfound) {
-            // Handle case when the product is not found
+          
             return res.status(404).json({ error: 'Product not found' });
         }
         
-        // console.log(productfound); // Log the product
         res.json(productfound);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
+
+app.put('/users/:id', async (req, res) => {
+    const userId = req.params.id;
+  
+    try {
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      user.name = req.body.name;
+      user.address= req.body.address;
+  
+      const updatedUser = await user.save();
+  
+      res.json(updatedUser);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
 
 //get userRouts
 const users = require('./api/UserRoutes');

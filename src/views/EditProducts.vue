@@ -1,31 +1,3 @@
-<!-- <template>
-       <div class="card edit-product">
-            <div class="card-content">
-                <p class="editHeading">Profile Picture</p>
-                <div class="columns">
-                    <div class="column is-one-quarter">
-                        <img class="editPic" src="../images/profile.png" alt="..."> 
-                    </div>
-                    <div class="column">
-                        <input type="file" id="uploadProfile" accept="image/png, image/jpeg" hidden/>
-                        <label class="uploadLabel" for="uploadProfile">Choose file</label>
-                        <p class="has-text-danger">Remove</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-</template>
-
-<style>
-    .edit-product{
-        width: 1000px;
-        length: 1000px;
-    }
-</style> -->
-
-
-
 <template>
 
     <div class="card">
