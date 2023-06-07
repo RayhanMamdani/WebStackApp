@@ -4,7 +4,7 @@
     "description": "ok",
     "main": "./index.js",
     "scripts": {
-      
+      "build": "echo 'hello'"
     },
     "keywords": [],
     "author": "",
