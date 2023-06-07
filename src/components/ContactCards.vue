@@ -10,11 +10,6 @@ export default {
     username: {
       type: Object,
       default: 'none'
-    }, methods: {
-      handleId(event){
-        console.log("Wsfkjs;lkadj afkl;sda sldkfj kljasdlkfjalks jdflkajsldkjflkasjd fllaskd jfl;kjsdlkfjl akjaslkdjf lkasdlkfjaslkd jkliajskljfjweiof haweiouhfgashndkjlfh aiushef hakjsdhf ahuiserhfiahweiufghakj hdf")
-        // console.log(id)
-      }
     }
   }
 }
