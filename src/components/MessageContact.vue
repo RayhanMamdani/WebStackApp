@@ -45,6 +45,10 @@ onMounted(() => {
       font-size: 30px;
     }
 
+    .card-content{
+      width:500px;
+    }
+
 </style>
 <script>
 export default {
