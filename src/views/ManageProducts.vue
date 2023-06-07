@@ -2,9 +2,10 @@
     import CardsTemporary from '../components/CardsTemporary.vue';
     import NavBar from '../components/NavBar.vue'
   import Cards from '../components/Cards.vue';
+  import { ref, onMounted } from 'vue';
     import axios from 'axios';
     const userInfo = ref('');
-import { ref, onMounted } from 'vue';
+
 
 let data = '';
 

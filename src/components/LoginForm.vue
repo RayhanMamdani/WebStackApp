@@ -21,7 +21,7 @@ export default {
         async login(e) {
             let success = true
             e.preventDefault()
-            let url = "http://localhost:3000/api/users/login/"
+            let url = "https://vendozaserver.onrender.com/api/users/login/"
 
             let res = await axios.post(url, {
               "email": this.email,

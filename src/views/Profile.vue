@@ -13,7 +13,7 @@
 let config = {
   method: 'get',
   maxBodyLength: Infinity,
-  url: `http://localhost:3000/users/${userId}`,
+  url: `https://vendozaserver.onrender.com/users/${userId}`,
   headers: { },
   data : data
 };
@@ -30,7 +30,7 @@ onMounted(async () => {
 
 
 
-    userInfo.value = axios.get("http://localhost:3000/userById", {
+    userInfo.value = axios.get("https://vendozaserver.onrender.com/userById", {
           params: {
             id: userId
           }

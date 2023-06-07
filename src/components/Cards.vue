@@ -50,7 +50,7 @@ export default {
   let config = {
     method: 'delete',
     maxBodyLength: Infinity,
-    url: 'http://localhost:3000/products',
+    url: 'https://vendozaserver.onrender.com/products',
     headers: {
       'Content-Type': 'application/json'
     },

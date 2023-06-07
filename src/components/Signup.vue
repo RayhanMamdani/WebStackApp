@@ -106,7 +106,7 @@
                 return;
               }
                 e.preventDefault()
-                let url = "http://localhost:3000/api/users/register/"
+                let url = "https://vendozaserver.onrender.com/api/users/register/"
                 console.log(url)
                 axios.post(url, {
                   "name": this.name,

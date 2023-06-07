@@ -12,7 +12,7 @@ const nameUpdate = ref('');
 const addressUpdate = ref('');
 
 onMounted(() => {
-  axios.get("http://localhost:3000/currentUser", {
+  axios.get("https://vendozaserver.onrender.com/currentUser", {
     headers: {
       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
     }
@@ -63,7 +63,7 @@ let data = JSON.stringify({
 let config = {
   method: 'post',
   maxBodyLength: Infinity,
-  url: 'http://localhost:3000/products',
+  url: 'https://vendozaserver.onrender.com/products',
   headers: { 
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
@@ -104,7 +104,7 @@ const updateUser = async (event) => {
   });
 
 let currentUser;
-  await axios.get("http://localhost:3000/currentUser", {
+  await axios.get("https://vendozaserver.onrender.com/currentUser", {
     headers: {
       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
     }
@@ -120,7 +120,7 @@ console.log(currentUser.user._id);
   let config = {
     method: 'put',
     maxBodyLength: Infinity,
-    url: 'http://localhost:3000/users/' + currentUser.user._id,
+    url: 'https://vendozaserver.onrender.com/users/' + currentUser.user._id,
     headers: { 
       'Content-Type': 'application/json'
     },

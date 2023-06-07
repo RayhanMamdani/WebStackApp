@@ -23,7 +23,7 @@ const performSearch = () => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'http://localhost:3000/products',
+    url: 'https://vendozaserver.onrender.com/products',
     headers: { 
       'Content-Type': 'application/json'
     },

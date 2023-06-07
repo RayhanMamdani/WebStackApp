@@ -45,7 +45,7 @@ import { onMounted } from 'vue'
 
 // const userInfo = ref([]);
 // // const reciever = window.location.href.split('/').reverse()[0]
-// userInfo.value = axios.get("http://localhost:3000/currentUser", {
+// userInfo.value = axios.get("https://vendozaserver.onrender.com/currentUser", {
 //     headers: {
 //         'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
 //       },
@@ -55,7 +55,7 @@ import { onMounted } from 'vue'
 
 
         
-// userInfo.user = axios.get("http://localhost:3000/currentUser", {
+// userInfo.user = axios.get("https://vendozaserver.onrender.com/currentUser", {
 //   headers: {
 //       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
 //     },
@@ -92,7 +92,7 @@ export default {
       let config = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: 'http://localhost:3000/messages',
+          url: 'https://vendozaserver.onrender.com/messages',
           headers: { 
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
@@ -132,7 +132,7 @@ export default {
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          url: 'http://localhost:3000/messages',
+          url: 'https://vendozaserver.onrender.com/messages',
           headers: { 
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`

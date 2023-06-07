@@ -9,7 +9,7 @@ let msgedUser = ref({});
 
 
 onMounted(() => {
-  axios.get("http://localhost:3000/currentUser", {
+  axios.get("https://vendozaserver.onrender.com/currentUser", {
     headers: {
       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
     }
@@ -17,7 +17,7 @@ onMounted(() => {
       user.value = response.data; // Store the fetched user data in the user ref
       console.log(user)
       for (let i = 0; i < user.value.user.messages.length; i++){
-        let res = await axios.get(`http://localhost:3000/users/${user.value.user.messages[i].recipient}`)
+        let res = await axios.get(`https://vendozaserver.onrender.com/users/${user.value.user.messages[i].recipient}`)
         userid.value.push(res.data);
       }
     }).catch(error => {

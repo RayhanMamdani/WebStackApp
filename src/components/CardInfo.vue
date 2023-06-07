@@ -235,7 +235,7 @@ import { ref, onMounted } from 'vue';
 let user = ref(null); // Initialize with null or any default value
 
 onMounted(() => {
-  axios.get("http://localhost:3000/currentUser", {
+  axios.get("https://vendozaserver.onrender.com/currentUser", {
     headers: {
       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
     }

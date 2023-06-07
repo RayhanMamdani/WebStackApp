@@ -15,7 +15,7 @@ const userInfo = ref([]);
 let user = ref(null); // Initialize with null or any default value
 
 onMounted(() => {
-  axios.get("http://localhost:3000/currentUser", {
+  axios.get("https://vendozaserver.onrender.com/currentUser", {
     headers: {
       'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
     }
@@ -35,7 +35,7 @@ const performSearch = () => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'http://localhost:3000/products/productInfo',
+    url: 'https://vendozaserver.onrender.com/products/productInfo',
     headers: { 
       'Content-Type': 'application/json'
     },
@@ -47,7 +47,7 @@ const performSearch = () => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       productInfo.value = response.data;
-      userInfo.user = axios.get("http://localhost:3000/userById", {
+      userInfo.user = axios.get("https://vendozaserver.onrender.com/userById", {
           params: {
             id: productInfo.value.user
           }
