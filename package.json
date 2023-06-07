@@ -26,7 +26,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "lineicons": "^1.0.3",
-    "mongoose": "^7.1.0",
+    
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "pinia": "^2.0.28",
