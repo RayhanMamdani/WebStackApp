@@ -1,5 +1,7 @@
 {
-
+  "engines": {
+    "node": "8"
+  },
   "name": "webstackapp",
   "version": "0.0.0",
   "private": true,
