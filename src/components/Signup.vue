@@ -117,11 +117,14 @@
                   "confirmPassword": this.confirmPassword
                 }).then((response) => {
                     console.log(response)
+                    if (response.data.success){
+                      this.$router.push({ name: 'Login' });
+                    }
                 }, {
                     withCredentials: true,
                     maxRedirects: 1
                 })
-              this.$router.push({ name: 'Login' });
+              
             },
             
         }

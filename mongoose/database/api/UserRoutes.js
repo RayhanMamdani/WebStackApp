@@ -20,10 +20,11 @@ router.post('/register', async (req, res) => {
            msg: "Passwords do not match." 
         })
     }
-
+    console.log(email)
     let isDup = await User.findOne({email: email}).then(email => {
         return email
     })
+    console.log(isDup)
     if(isDup){
         return res.status(400).json({
             msg: "Email is already registered." 
