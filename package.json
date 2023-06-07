@@ -39,5 +39,6 @@
     "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",
     "vite": "^4.0.0"
-  }
+  },
+  "engines": { "node": ">=14.20.1" }
 }
