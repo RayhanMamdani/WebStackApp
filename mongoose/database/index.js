@@ -8,7 +8,7 @@ const messages = require('./models/messages');
 const product = require('./models/product');
 const rating = require('./models/ratings');
 const passport = require('passport')
-const { clearConfigCache } = require('prettier');
+// const { clearConfigCache } = require('prettier');
 const User = require('./models/users')
 const Messages = require('./models/messages')
 
