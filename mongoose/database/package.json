@@ -25,6 +25,25 @@
       "nodemon": "^2.0.22",
       "objectid": "^3.2.1",
       "passport": "^0.6.0",
-      "passport-local": "^1.0.0"
+      "passport-local": "^1.0.0",
+      "@fortawesome/fontawesome-free": "^6.4.0",
+      "@fortawesome/fontawesome-svg-core": "^6.4.0",
+      "@fortawesome/free-brands-svg-icons": "^6.4.0",
+      "@fortawesome/free-regular-svg-icons": "^6.4.0",
+      "@fortawesome/free-solid-svg-icons": "^6.4.0",
+      "@fortawesome/vue-fontawesome": "^3.0.3",
+      "axios": "^1.4.0",
+
+      "bulma": "^0.9.4",
+
+      "jsonwebtoken": "^9.0.0",
+      "lineicons": "^1.0.3",
+
+      "passport-jwt": "^4.0.1",
+      "pinia": "^2.0.28",
+      "react-router": "^6.11.2",
+      "vue": "^3.2.45",
+      "vue-router": "^4.1.6"
+      
     }
   }
