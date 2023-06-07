@@ -8,7 +8,7 @@ import Profile from '../views/Profile.vue'
 import Chatbox from '../views/Chatbox.vue'
 import MyProfile from '../views/MyProfile.vue'
 import Login2 from '../views/Login2.vue'
-import Signup2 from '../views/Signup2.vue'
+import Signup2 from '../views/SignUp2.vue'
 import EditProducts from '../views/EditProducts.vue'
 import ManageProducts from '../views/ManageProducts.vue'
 const router = createRouter({
