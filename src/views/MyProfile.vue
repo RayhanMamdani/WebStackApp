@@ -183,6 +183,11 @@ console.log(currentUser.user._id);
     /* .unlist-button{
         display: block !important;
     } */
+
+    .card-content{
+        width: 100%;
+      }
+
 </style>
 
 <template>
@@ -204,7 +209,7 @@ console.log(currentUser.user._id);
   <div class="column is-one-half">
        
         <br>
-        <div class="card">
+        <div class="card edit-info">
             <div class="card-content">
                 <p class="editHeading">User Info</p>
                 <label for="">First Name</label>
@@ -219,7 +224,8 @@ console.log(currentUser.user._id);
 
     </div>
     <div class="column addItem">
-        <div class="card">
+      <br>
+        <div class="card edit-info">
             <div class="card-content">
                 <h1>Sell new item</h1> 
 
@@ -227,7 +233,7 @@ console.log(currentUser.user._id);
                     <label for="">Product Name</label>
                         <input v-model="productName"  class="input" type="text" >
                     <label for="">Product Price</label>
-                        <input v-model="productPrice" class="input" type="text" >
+                        <input v-model="productPrice" class="input" type="number" >
                     <label for="">Product Description</label>
                         <input v-model="productDescription" class="input" type="text" >
                         <label for="">Quantity</label>

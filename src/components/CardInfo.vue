@@ -196,7 +196,7 @@ button:hover {
 
 @media only screen and (max-width: 566px) {
     .card{
-        height: 750px !important;
+       /* height: 750px !important;*/
     }
        
 

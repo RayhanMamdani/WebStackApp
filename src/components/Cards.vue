@@ -312,4 +312,28 @@ body {
     width: 380px; 
     margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 575px) {
+  .card{
+    width: 330px !important;
+   /* height:700px !important;*/
+  }
+  .card .card-header h3 {
+    font-size: 20px !important
+
+  }
+ 
+ }
+
+
+ @media only screen and (max-width: 455px) {
+  .card{
+    width: 250px !important;
+  }
+  .card .card-header h3 {
+    font-size: 15px !important
+  }
+ }
+
+
 </style>

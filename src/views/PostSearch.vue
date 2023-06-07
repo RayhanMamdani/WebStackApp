@@ -160,6 +160,7 @@ input:checked + .slider:before {
 <template>
     <NavBar></NavBar>
     <SearchBar  @search="handleSearch" :font-color="'black'" style="margin-top: -20px;"></SearchBar>
+    <br>
     <div>
         
         <div class="columns">

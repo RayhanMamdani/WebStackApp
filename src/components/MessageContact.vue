@@ -27,6 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <br>
       <h1 id="newMessage" v-if="userid.length <= 0">Send your first message!</h1>
     <ContactCards v-else v-for="users in userid" :username="users"></ContactCards>
 </template>

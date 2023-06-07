@@ -24,7 +24,7 @@ export default {
 
 <template>
     <RouterLink :to="{ path: `/Chatbox/${username._id}` }">
-    <div class="card message-card" style="width: fit-content !important; height: fit-content !important;">
+    <div class="card message-card" style="width: 100% !important; height: fit-content !important;">
         <div class="card-content">
           <div class="columns">
         <div class="column is-one-fifth">
@@ -37,3 +37,4 @@ export default {
     </div>
   </RouterLink>
 </template>
+
