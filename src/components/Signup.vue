@@ -121,7 +121,7 @@
                     withCredentials: true,
                     maxRedirects: 1
                 })
-
+              this.$router.push({ name: 'Login' });
             },
             
         }
